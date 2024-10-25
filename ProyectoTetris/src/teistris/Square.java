@@ -25,6 +25,7 @@ import javax.swing.border.BevelBorder;
  * Clase que implementa un cadrado do xogo do Tetris
  *
  * @author Profe de Programación
+ * @author Mateo Alfaya & Xaquin Alves
  */
 public class Square {
 

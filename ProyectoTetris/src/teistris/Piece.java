@@ -22,6 +22,7 @@ import java.awt.Color;
  * Clase que implementa a peza cadrada do xogo do Tetris
  *
  * @author Profe de Programación
+ * @author Mateo Alfaya & Xaquin Alves
  */
 public class Piece {
 
@@ -43,7 +44,7 @@ public class Piece {
 
         a = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
         b = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
-        c = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, 
+        c = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
                 Color.BLUE, game);
         d = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
     }
@@ -87,6 +88,79 @@ public class Piece {
         // A rotación da ficha cadrada non supón ningunha variación na ficha,
         // por iso simplemente devolvemos true
         return true;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Game getGame() {
+        return game;
+    }
+
+    /**
+     *
+     * @param game
+     */
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Square getA() {
+        return a;
+    }
+    /**
+     * 
+     * @param a 
+     */
+    public void setA(Square a) {
+        this.a = a;
+    }
+    /**
+     * 
+     * @return 
+     */
+    public Square getB() {
+        return b;
+    }
+    /**
+     * 
+     * @param b 
+     */
+    public void setB(Square b) {
+        this.b = b;
+    }
+    /**
+     * 
+     * @return 
+     */
+    public Square getC() {
+        return c;
+    }
+    /**
+     * 
+     * @param c 
+     */
+    public void setC(Square c) {
+        this.c = c;
+    }
+    /**
+     * 
+     * @return 
+     */
+    public Square getD() {
+        return d;
+    }
+    /**
+     * 
+     * @param d 
+     */
+    public void setD(Square d) {
+        this.d = d;
     }
 
 }
