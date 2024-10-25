@@ -20,6 +20,7 @@ package teistris;
  * Clase que implementa o comportamento do xogo do Tetris
  * @author Profe de Programación
  * @author Mateo Alfaya & Xaquin Alves
+ * xasdaasdfdas
  */
 public class Game {
 
