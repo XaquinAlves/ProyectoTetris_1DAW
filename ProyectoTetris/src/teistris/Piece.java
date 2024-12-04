@@ -34,7 +34,31 @@ public class Piece {
     /**
      * Referenzas aos catro cadrados que forman a peza
      */
-    private Square a, b, c, d;
+    private Square squares[];
+
+    /**
+     *
+     * @return referencia a game
+     */
+    public Game getGame() {
+        return game;
+    }
+
+    /**
+     *
+     * @param game Establecer partida
+     */
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    /**
+     *
+     * @return array de cadrados
+     */
+    public Square[] getSquares() {
+        return squares;
+    }
 
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
@@ -42,11 +66,12 @@ public class Piece {
     public Piece(Game game) {
         this.game = game;
 
-        a = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
-        b = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
-        c = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
-                Color.BLUE, game);
-        d = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
+        squares = new Square[]{
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game),
+            new Square(Game.MAX_X / 2, 0, Color.BLUE, game),
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,Color.BLUE, game),
+            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game)
+        };
     }
 
     /**
@@ -55,22 +80,20 @@ public class Piece {
      * @return true se o movemento da ficha é posible, se non false
      */
     public boolean moveRight() {
-        if (game.isValidPosition(a.getX() + Game.SQUARE_SIDE, a.getY())) {
-            if (game.isValidPosition(b.getX() + Game.SQUARE_SIDE, b.getY())) {
-                if (game.isValidPosition(c.getX() + Game.SQUARE_SIDE, c.getY())) {
-                    if (game.isValidPosition(d.getX() + Game.SQUARE_SIDE, d.getY())) {
+        
+        for (Square sq:squares){
+            
+            if (!game.isValidPosition(sq.getX()+Game.SQUARE_SIDE, sq.getY()))
+     
+                return false;
 
-                        a.setX(a.getX() + Game.SQUARE_SIDE);
-                        b.setX(b.getX() + Game.SQUARE_SIDE);
-                        c.setX(c.getX() + Game.SQUARE_SIDE);
-                        d.setX(d.getX() + Game.SQUARE_SIDE);
-
-                        return true;
-                    }
                 }
-            }
+        for (Square sq:squares){
+            
+            sq.setX(sq.getX()+Game.SQUARE_SIDE);
         }
-        return false;
+        
+        return true;
     }
 
     /**
@@ -79,22 +102,20 @@ public class Piece {
      * @return true se o movemento da ficha é posible, se non false
      */
     public boolean moveLeft() {
-        if (game.isValidPosition(a.getX() - Game.SQUARE_SIDE, a.getY())) {
-            if (game.isValidPosition(b.getX() - Game.SQUARE_SIDE, b.getY())) {
-                if (game.isValidPosition(c.getX() - Game.SQUARE_SIDE, c.getY())) {
-                    if (game.isValidPosition(d.getX() - Game.SQUARE_SIDE, d.getY())) {
+        
+        for (Square sq:squares){
+            
+            if (!game.isValidPosition(sq.getX()-Game.SQUARE_SIDE, sq.getY()))
+     
+                return false;
 
-                        a.setX(a.getX() - Game.SQUARE_SIDE);
-                        b.setX(b.getX() - Game.SQUARE_SIDE);
-                        c.setX(c.getX() - Game.SQUARE_SIDE);
-                        d.setX(d.getX() - Game.SQUARE_SIDE);
-
-                        return true;
-                    }
                 }
-            }
+        for (Square sq:squares){
+            
+            sq.setX(sq.getX()-Game.SQUARE_SIDE);
         }
-        return false;
+        
+        return true;
     }
 
     /**
@@ -103,22 +124,20 @@ public class Piece {
      * @return true se o movemento da ficha é posible, se non false
      */
     public boolean moveDown() {
- if (game.isValidPosition(a.getX(), a.getY() + Game.SQUARE_SIDE)) {
-            if (game.isValidPosition(b.getX(), b.getY() + Game.SQUARE_SIDE)) {
-                if (game.isValidPosition(c.getX(), c.getY() + Game.SQUARE_SIDE)) {
-                    if (game.isValidPosition(d.getX(), d.getY() + Game.SQUARE_SIDE)) {
+       
+        for (Square sq:squares){
+            
+            if (!game.isValidPosition(sq.getX(), sq.getY()+Game.SQUARE_SIDE))
+     
+                return false;
 
-                        a.setY(a.getY()+ Game.SQUARE_SIDE);
-                        b.setY(b.getY()+ Game.SQUARE_SIDE);
-                        c.setY(c.getY()+ Game.SQUARE_SIDE);
-                        d.setY(d.getY()+ Game.SQUARE_SIDE);
-
-                        return true;
-                    }
                 }
-            }
+        for (Square sq:squares){
+            
+            sq.setY(sq.getY()+Game.SQUARE_SIDE);
         }
-        return false;
+        
+        return true;
     }
 
     /**
@@ -130,86 +149,6 @@ public class Piece {
         // A rotación da ficha cadrada non supón ningunha variación na ficha,
         // por iso simplemente devolvemos true
         return true;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Game getGame() {
-        return game;
-    }
-
-    /**
-     *
-     * @param game
-     */
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Square getA() {
-        return a;
-    }
-
-    /**
-     *
-     * @param a
-     */
-    public void setA(Square a) {
-        this.a = a;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Square getB() {
-        return b;
-    }
-
-    /**
-     *
-     * @param b
-     */
-    public void setB(Square b) {
-        this.b = b;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Square getC() {
-        return c;
-    }
-
-    /**
-     *
-     * @param c
-     */
-    public void setC(Square c) {
-        this.c = c;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Square getD() {
-        return d;
-    }
-
-    /**
-     *
-     * @param d
-     */
-    public void setD(Square d) {
-        this.d = d;
     }
 
 }

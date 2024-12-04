@@ -16,14 +16,20 @@
  */
 package teistris;
 
+import java.util.HashMap;
+
 /**
  * Clase que implementa o comportamento do xogo do Tetris
+ *
  * @author Profe de Programación
- * @author Mateo Alfaya & Xaquin Alves
- * xasdaasdfdas
+ * @author Mateo Alfaya & Xaquin Alves xasdaasdfdas
  */
 public class Game {
 
+    /**
+     * Almacena os cadrados do chan
+     */
+    private HashMap<String, Square> groundSquares;
     /**
      * Constante que define o tamaño en pixels do lado dun cadrado
      */
@@ -100,11 +106,13 @@ public class Game {
 
     /**
      * Construtor da clase, que crea unha primeira peza
+     *
      * @param mainWindow Referenza á ventá principal do xogo
      */
     public Game(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
         this.createNewPiece();
+        this.groundSquares = new HashMap<>();
     }
 
     /**
@@ -135,9 +143,9 @@ public class Game {
     }
 
     /**
-     * Move a peza actual abaixo, se o xogo non está pausado Se a peza choca
-     * con algo e xa non pode baixar, pasa a formar parte do chan e créase unha
-     * nova peza
+     * Move a peza actual abaixo, se o xogo non está pausado Se a peza choca con
+     * algo e xa non pode baixar, pasa a formar parte do chan e créase unha nova
+     * peza
      */
     public void movePieceDown() {
         if ((!paused) && (!currentPiece.moveDown())) {
@@ -157,7 +165,7 @@ public class Game {
      * @return true se esa posición é válida, se non false
      */
     public boolean isValidPosition(int x, int y) {
-        if ((x == MAX_X) || (x < 0) || (y == MAX_Y)) {
+        if ((x == MAX_X) || (x < 0) || (y == MAX_Y) || groundSquares.containsKey(String.valueOf(x) + "," + String.valueOf(y))) {
             return false;
         }
         return true;
@@ -175,7 +183,9 @@ public class Game {
      */
     private void addPieceToGround() {
         // Engadimos os cadrados da peza ao chan
-
+        for (Square sq : currentPiece.getSquares()) {
+            groundSquares.put(sq.getCoordinates(), sq);
+        }
         // Chamamos ao método que borra as liñas do chan que estean completas
         this.deleteCompletedLines();
     }
@@ -205,7 +215,12 @@ public class Game {
      * @return true se a peza actual choca cos cadrados do chan; se non false
      */
     private boolean hitPieceTheGround() {
-        // Polo momento, non facemos nada
+        // 
+        for (Square sq: currentPiece.getSquares()){
+            if(groundSquares.containsKey(sq.getCoordinates())){
+                return true;
+            }
+        }
         return false;
     }
 }
