@@ -16,6 +16,7 @@
  */
 package teistris;
 
+import java.awt.RenderingHints;
 import java.util.HashMap;
 
 /**
@@ -195,7 +196,22 @@ public class Game {
      * cadrados do chan e súmase unha nova liña no número de liñas realizadas
      */
     private void deleteCompletedLines() {
+        boolean isEmpty;
 
+        for (int i = 0; i < MAX_Y; i++) {
+            isEmpty = false;
+            for (int j = 0; j < MAX_X; j++) {
+                if (!groundSquares.containsKey(j + "," + i)) {
+                    isEmpty = true;
+                }
+            }
+            if (!isEmpty) {
+                deleteLine(i);
+                numberOfLines += 1;
+                mainWindow.showNumberOfLines(numberOfLines);
+            }
+
+        }
     }
 
     /**
@@ -206,7 +222,26 @@ public class Game {
      * @param y Coordenada y da liña a borrar
      */
     private void deleteLine(int y) {
-
+        for(int i=0;i<MAX_X;i+=SQUARE_SIDE){
+            Square sq=groundSquares.get(i+","+y);
+            mainWindow.deleteSquare(sq.getLblSquare());
+            groundSquares.remove(sq.getCoordinates());
+        }
+        
+        for (int i=y;i>=0;i+=SQUARE_SIDE){
+            for (int j=0;j<MAX_X;j+=SQUARE_SIDE){
+                if(groundSquares.containsKey(j+","+i));
+                
+                Square tempSq=groundSquares.get(j+","+i);
+                Square sq= new Square(j, i+SQUARE_SIDE, tempSq.getFillColor(),this);
+                
+                groundSquares.put(j+","+(i+SQUARE_SIDE),sq);
+                mainWindow.drawSquare(sq.getLblSquare());
+                
+                mainWindow.deleteSquare(tempSq.getLblSquare());
+                groundSquares.remove(j+","+i);
+            }
+        }
     }
 
     /**
@@ -216,8 +251,8 @@ public class Game {
      */
     private boolean hitPieceTheGround() {
         // 
-        for (Square sq: currentPiece.getSquares()){
-            if(groundSquares.containsKey(sq.getCoordinates())){
+        for (Square sq : currentPiece.getSquares()) {
+            if (groundSquares.containsKey(sq.getCoordinates())) {
                 return true;
             }
         }
