@@ -16,6 +16,7 @@
  */
 package teistris;
 
+import com.sun.java.accessibility.util.EventID;
 import java.awt.RenderingHints;
 import java.util.HashMap;
 
@@ -198,9 +199,9 @@ public class Game {
     private void deleteCompletedLines() {
         boolean isEmpty;
 
-        for (int i = 0; i < MAX_Y; i++) {
+        for (int i = 0; i < MAX_Y; i+=SQUARE_SIDE) {
             isEmpty = false;
-            for (int j = 0; j < MAX_X; j++) {
+            for (int j = 0; j < MAX_X && !isEmpty; j+=SQUARE_SIDE) {
                 if (!groundSquares.containsKey(j + "," + i)) {
                     isEmpty = true;
                 }
@@ -228,9 +229,9 @@ public class Game {
             groundSquares.remove(sq.getCoordinates());
         }
         
-        for (int i=y;i>=0;i+=SQUARE_SIDE){
+        for (int i=y;i>=0;i-=SQUARE_SIDE){
             for (int j=0;j<MAX_X;j+=SQUARE_SIDE){
-                if(groundSquares.containsKey(j+","+i));
+                if(groundSquares.containsKey(j+","+i)){
                 
                 Square tempSq=groundSquares.get(j+","+i);
                 Square sq= new Square(j, i+SQUARE_SIDE, tempSq.getFillColor(),this);
@@ -241,6 +242,7 @@ public class Game {
                 mainWindow.deleteSquare(tempSq.getLblSquare());
                 groundSquares.remove(j+","+i);
             }
+        }
         }
     }
 
