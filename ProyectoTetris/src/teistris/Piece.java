@@ -27,8 +27,7 @@ import javax.swing.text.Position;
  */
 public abstract class Piece {
 
-    
-    protected int position=0;
+        protected int position=0;
     /**
      * Referenza ao obxecto xogo
      */
