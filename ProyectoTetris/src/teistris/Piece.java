@@ -17,6 +17,7 @@
 package teistris;
 
 import java.awt.Color;
+import javax.swing.text.Position;
 
 /**
  * Clase que implementa a peza cadrada do xogo do Tetris
@@ -24,17 +25,19 @@ import java.awt.Color;
  * @author Profe de Programación
  * @author Mateo Alfaya & Xaquin Alves
  */
-public class Piece {
+public abstract class Piece {
 
+    
+    protected int position=0;
     /**
      * Referenza ao obxecto xogo
      */
-    private Game game;
+    protected Game game;
 
     /**
      * Referenzas aos catro cadrados que forman a peza
      */
-    private Square squares[];
+    protected Square squares[];
 
     /**
      *
@@ -61,38 +64,24 @@ public class Piece {
     }
 
     /**
-     * Construtor da clase, que crea os catro cadrados que forman a peza
-     */
-    public Piece(Game game) {
-        this.game = game;
-
-        squares = new Square[]{
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game),
-            new Square(Game.MAX_X / 2, 0, Color.BLUE, game),
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,Color.BLUE, game),
-            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game)
-        };
-    }
-
-    /**
      * Move a ficha á dereita se é posible
      *
      * @return true se o movemento da ficha é posible, se non false
      */
     public boolean moveRight() {
-        
-        for (Square sq:squares){
-            
-            if (!game.isValidPosition(sq.getX()+Game.SQUARE_SIDE, sq.getY()))
-     
-                return false;
 
-                }
-        for (Square sq:squares){
-            
-            sq.setX(sq.getX()+Game.SQUARE_SIDE);
+        for (Square sq : squares) {
+
+            if (!game.isValidPosition(sq.getX() + Game.SQUARE_SIDE, sq.getY())) {
+                return false;
+            }
+
         }
-        
+        for (Square sq : squares) {
+
+            sq.setX(sq.getX() + Game.SQUARE_SIDE);
+        }
+
         return true;
     }
 
@@ -102,19 +91,19 @@ public class Piece {
      * @return true se o movemento da ficha é posible, se non false
      */
     public boolean moveLeft() {
-        
-        for (Square sq:squares){
-            
-            if (!game.isValidPosition(sq.getX()-Game.SQUARE_SIDE, sq.getY()))
-     
-                return false;
 
-                }
-        for (Square sq:squares){
-            
-            sq.setX(sq.getX()-Game.SQUARE_SIDE);
+        for (Square sq : squares) {
+
+            if (!game.isValidPosition(sq.getX() - Game.SQUARE_SIDE, sq.getY())) {
+                return false;
+            }
+
         }
-        
+        for (Square sq : squares) {
+
+            sq.setX(sq.getX() - Game.SQUARE_SIDE);
+        }
+
         return true;
     }
 
@@ -124,19 +113,19 @@ public class Piece {
      * @return true se o movemento da ficha é posible, se non false
      */
     public boolean moveDown() {
-       
-        for (Square sq:squares){
-            
-            if (!game.isValidPosition(sq.getX(), sq.getY()+Game.SQUARE_SIDE))
-     
-                return false;
 
-                }
-        for (Square sq:squares){
-            
-            sq.setY(sq.getY()+Game.SQUARE_SIDE);
+        for (Square sq : squares) {
+
+            if (!game.isValidPosition(sq.getX(), sq.getY() + Game.SQUARE_SIDE)) {
+                return false;
+            }
+
         }
-        
+        for (Square sq : squares) {
+
+            sq.setY(sq.getY() + Game.SQUARE_SIDE);
+        }
+
         return true;
     }
 
@@ -145,10 +134,5 @@ public class Piece {
      *
      * @return true se o movemento da ficha é posible, se non false
      */
-    public boolean rotate() {
-        // A rotación da ficha cadrada non supón ningunha variación na ficha,
-        // por iso simplemente devolvemos true
-        return true;
-    }
-
+    public abstract boolean rotate();
 }

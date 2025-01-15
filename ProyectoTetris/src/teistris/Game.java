@@ -16,7 +16,6 @@
  */
 package teistris;
 
-import com.sun.java.accessibility.util.EventID;
 import java.awt.RenderingHints;
 import java.util.HashMap;
 
@@ -174,10 +173,19 @@ public class Game {
     }
 
     /**
-     * Crea unha nova peza e a establece como peza actual do xogo
+     * Crea unha nova peza cadrada e a establece como peza actual do xogo
      */
     private void createNewPiece() {
-        this.currentPiece = new Piece(this);
+        int pieceType = new java.util.Random().nextInt(4);
+        if (pieceType == 0) {
+            this.currentPiece = new SquarePiece(this);
+        } else if (pieceType == 1) {
+            this.currentPiece = new BarPiece(this);
+        } else if (pieceType == 2) {
+            this.currentPiece = new LPiece(this);
+        } else {
+            this.currentPiece = new TPiece(this);
+        }
     }
 
     /**
@@ -201,7 +209,7 @@ public class Game {
 
         for (int i = 0; i < MAX_Y; i+=SQUARE_SIDE) {
             isEmpty = false;
-            for (int j = 0; j < MAX_X && !isEmpty; j+=SQUARE_SIDE) {
+            for (int j = 0; j < MAX_X &&!isEmpty; j+=SQUARE_SIDE) {
                 if (!groundSquares.containsKey(j + "," + i)) {
                     isEmpty = true;
                 }
@@ -223,26 +231,26 @@ public class Game {
      * @param y Coordenada y da liña a borrar
      */
     private void deleteLine(int y) {
-        for(int i=0;i<MAX_X;i+=SQUARE_SIDE){
-            Square sq=groundSquares.get(i+","+y);
+        for (int i = 0; i < MAX_X; i += SQUARE_SIDE) {
+            Square sq = groundSquares.get(i + "," + y);
             mainWindow.deleteSquare(sq.getLblSquare());
             groundSquares.remove(sq.getCoordinates());
         }
-        
-        for (int i=y;i>=0;i-=SQUARE_SIDE){
-            for (int j=0;j<MAX_X;j+=SQUARE_SIDE){
-                if(groundSquares.containsKey(j+","+i)){
-                
-                Square tempSq=groundSquares.get(j+","+i);
-                Square sq= new Square(j, i+SQUARE_SIDE, tempSq.getFillColor(),this);
-                
-                groundSquares.put(j+","+(i+SQUARE_SIDE),sq);
+
+        for (int i = y; i >= 0; i -= SQUARE_SIDE) {
+            for (int j = 0; j < MAX_X; j += SQUARE_SIDE) {
+                if (groundSquares.containsKey(j + "," + i)){
+
+                Square tempSq = groundSquares.get(j + "," + i);
+                Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this);
+
+                groundSquares.put(j + "," + (i + SQUARE_SIDE), sq);
                 mainWindow.drawSquare(sq.getLblSquare());
-                
+
                 mainWindow.deleteSquare(tempSq.getLblSquare());
-                groundSquares.remove(j+","+i);
+                groundSquares.remove(j + "," + i);
+                }
             }
-        }
         }
     }
 
