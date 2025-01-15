@@ -26,8 +26,10 @@ import javax.swing.text.Position;
  * @author Mateo Alfaya & Xaquin Alves
  */
 public abstract class Piece {
-
-        protected int position=0;
+    /**
+     * Atributo usado para a rotación das pezas
+     */
+    protected int position = 0;
     /**
      * Referenza ao obxecto xogo
      */

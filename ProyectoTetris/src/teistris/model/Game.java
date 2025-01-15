@@ -177,6 +177,7 @@ public class Game {
      * Crea unha nova peza cadrada e a establece como peza actual do xogo
      */
     private void createNewPiece() {
+        //Seleccionase aleatoriamente a peza de entre os subtipos dispoñibles
         int pieceType = new java.util.Random().nextInt(4);
         if (pieceType == 0) {
             this.currentPiece = new SquarePiece(this);

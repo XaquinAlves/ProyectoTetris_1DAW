@@ -10,7 +10,7 @@ import teistris.model.Game;
 import java.awt.Color;
 
 /**
- *
+ *Clase para a peza en L
  * @author Mateo
  */
 public class LPiece extends Piece {
@@ -31,7 +31,10 @@ public class LPiece extends Piece {
         };
 
     }
-
+    /**
+     * Método para rotar a peza. Cambia a posición dos cadrados que a compoñen segundo a posición actual
+     * @return 
+     */
     @Override
     public boolean rotate() {
 

@@ -10,6 +10,7 @@ import teistris.model.Game;
 import java.awt.Color;
 
 /**
+ * Clase para a peza cadrada
  *
  * @author Mateo
  */
@@ -29,10 +30,15 @@ public class SquarePiece extends Piece {
         };
     }
 
+    /**
+     * A rotación da ficha cadrada non supón ningunha variación na ficha, por
+     * iso simplemente devolvemos true
+     *
+     * @return
+     */
     @Override
     public boolean rotate() {
-        // A rotación da ficha cadrada non supón ningunha variación na ficha,
-        // por iso simplemente devolvemos true
+
         return true;
     }
 }
