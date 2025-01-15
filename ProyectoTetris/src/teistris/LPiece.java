@@ -12,6 +12,7 @@ import java.awt.Color;
  */
 public class LPiece extends Piece {
 
+
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
      *
@@ -53,33 +54,33 @@ public class LPiece extends Piece {
         } else if (position == 1) {
             squares[0].setX(squares[0].getX() + Game.SQUARE_SIDE);
             squares[2].setX(squares[2].getX() - Game.SQUARE_SIDE);
-            squares[3].setX(squares[3].getX()-Game.SQUARE_SIDE);
+            squares[3].setX(squares[3].getX()-Game.SQUARE_SIDE*2);
 
             squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
             squares[2].setY(squares[2].getY() - Game.SQUARE_SIDE);
-            squares[3].setY(squares[3].getY() - Game.SQUARE_SIDE * 2);
+            squares[3].setY(squares[3].getY());
             
             position = 2;
             
         } else if (position == 2) {
-            squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
-            squares[2].setX(squares[2].getX() + Game.SQUARE_SIDE);
+            squares[0].setX(squares[0].getX()+Game.SQUARE_SIDE);
+            squares[2].setX(squares[2].getX() - Game.SQUARE_SIDE);
             squares[3].setX(squares[3].getX());
 
-            squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
-            squares[2].setY(squares[2].getY() - Game.SQUARE_SIDE);
-            squares[3].setY(squares[3].getY() - Game.SQUARE_SIDE * 2);
+            squares[0].setY(squares[0].getY() - Game.SQUARE_SIDE);
+            squares[2].setY(squares[2].getY() + Game.SQUARE_SIDE);
+            squares[3].setY(squares[3].getY() + Game.SQUARE_SIDE * 2);
             
             position = 3;
             
         } else if (position == 3) {
             squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
             squares[2].setX(squares[2].getX() + Game.SQUARE_SIDE);
-            squares[3].setX(squares[3].getX());
+            squares[3].setX(squares[3].getX()+ Game.SQUARE_SIDE*2);
 
-            squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
-            squares[2].setY(squares[2].getY() - Game.SQUARE_SIDE);
-            squares[3].setY(squares[3].getY() - Game.SQUARE_SIDE * 2);
+            squares[0].setY(squares[0].getY() - Game.SQUARE_SIDE);
+            squares[2].setY(squares[2].getY() + Game.SQUARE_SIDE);
+            squares[3].setY(squares[3].getY());
             
             position = 0;
         }

@@ -29,7 +29,7 @@ public class TPiece extends Piece {
 
     }
 
-   @Override
+    @Override
     public boolean rotate() {
         // A rotación da ficha cadrada non supón ningunha variación na ficha,
         for (Square sq : squares) {
@@ -39,13 +39,52 @@ public class TPiece extends Piece {
             }
 
         }
-        squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
-        squares[2].setX(squares[2].getX() + Game.SQUARE_SIDE);
-        squares[3].setX(squares[3].getX() - Game.SQUARE_SIDE);
 
-        squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
-        squares[2].setY(squares[2].getY() - Game.SQUARE_SIDE);
-        squares[3].setY(squares[3].getY() + Game.SQUARE_SIDE);
+        if (position == 0) {
+            squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
+            squares[2].setX(squares[2].getX() + Game.SQUARE_SIDE);
+            squares[3].setX(squares[3].getX() - Game.SQUARE_SIDE);
+
+            squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
+            squares[2].setY(squares[2].getY() - Game.SQUARE_SIDE);
+            squares[3].setY(squares[3].getY() + Game.SQUARE_SIDE);
+
+            position = 1;
+
+        } else if (position == 1) {
+            squares[0].setX(squares[0].getX() + Game.SQUARE_SIDE);
+            squares[2].setX(squares[2].getX() - Game.SQUARE_SIDE);
+            squares[3].setX(squares[3].getX() - Game.SQUARE_SIDE);
+
+            squares[0].setY(squares[0].getY() - Game.SQUARE_SIDE);
+            squares[2].setY(squares[2].getY() + Game.SQUARE_SIDE);
+            squares[3].setY(squares[3].getY() - Game.SQUARE_SIDE);
+
+            position = 2;
+            
+        } else if (position == 2) {
+
+            squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
+            squares[2].setX(squares[2].getX() + Game.SQUARE_SIDE);
+            squares[3].setX(squares[3].getX() + Game.SQUARE_SIDE);
+
+            squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
+            squares[2].setY(squares[2].getY() - Game.SQUARE_SIDE);
+            squares[3].setY(squares[3].getY() - Game.SQUARE_SIDE);
+            
+            position = 3;
+            
+        } else if (position == 3) {
+            squares[0].setX(squares[0].getX() + Game.SQUARE_SIDE);
+            squares[2].setX(squares[2].getX() - Game.SQUARE_SIDE);
+            squares[3].setX(squares[3].getX() + Game.SQUARE_SIDE);
+
+            squares[0].setY(squares[0].getY() - Game.SQUARE_SIDE);
+            squares[2].setY(squares[2].getY() + Game.SQUARE_SIDE);
+            squares[3].setY(squares[3].getY() + Game.SQUARE_SIDE);
+
+            position = 0;
+        }
 
         return true;
     }
