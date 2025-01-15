@@ -32,16 +32,9 @@ public class LPiece extends Piece {
 
     @Override
     public boolean rotate() {
-        // A rotación da ficha cadrada non supón ningunha variación na ficha,
-        for (Square sq : squares) {
 
-            if (!game.isValidPosition(sq.getX() - Game.SQUARE_SIDE, sq.getY())) {
-                return false;
-            }
-
-        }
         if (position == 0) {
-            squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
+            if(true){            squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
             squares[2].setX(squares[2].getX() + Game.SQUARE_SIDE);
             squares[3].setX(squares[3].getX());
 
@@ -49,7 +42,8 @@ public class LPiece extends Piece {
             squares[2].setY(squares[2].getY() - Game.SQUARE_SIDE);
             squares[3].setY(squares[3].getY() - Game.SQUARE_SIDE * 2);
             
-            position = 1;
+            position = 1;}
+
             
         } else if (position == 1) {
             squares[0].setX(squares[0].getX() + Game.SQUARE_SIDE);
