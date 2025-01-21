@@ -7,8 +7,6 @@ import java.awt.*;
  */
 public class ZPiece extends Piece {
 
-    private int position;
-
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
      *
