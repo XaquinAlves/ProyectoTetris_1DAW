@@ -100,16 +100,10 @@ public class MainWindow extends javax.swing.JFrame {
         });
         //Arrancamos o timer
         timer.start();
-
+        //Configuramos o capturador de teclas
         KeyDispatcher kdp = new KeyDispatcher();
         kdp.setGame(game);
         manager.addKeyEventDispatcher(kdp);
-    }
-
-    public void rotatePiece() {
-        if (game != null) {
-            game.rotatePiece();
-        }
     }
 
     /**

@@ -17,7 +17,6 @@
 package teistris.model;
 
 import teistris.view.MainWindow;
-import java.awt.RenderingHints;
 import java.util.HashMap;
 
 /**
