@@ -18,7 +18,6 @@ package teistris.view;
 
 import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -31,19 +30,17 @@ import teistris.model.Game;
  */
 public class MainWindow extends javax.swing.JFrame {
 
-    private Timer timer;
-    private KeyboardFocusManager manager;
-
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
         manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
-        manager.addKeyEventDispatcher(new KeyDispatcher());
     }
 
     private Game game = null; // Referenza ao obxecto do xogo actual
+    private Timer timer; //Obxeto timer paa que as pezas baixen solas
+    private KeyboardFocusManager manager; //Para poder capturar as teclas
 
     /**
      * Pinta un cadrado no panel de cadrados
@@ -103,6 +100,16 @@ public class MainWindow extends javax.swing.JFrame {
         });
         //Arrancamos o timer
         timer.start();
+
+        KeyDispatcher kdp = new KeyDispatcher();
+        kdp.setGame(game);
+        manager.addKeyEventDispatcher(kdp);
+    }
+
+    public void rotatePiece() {
+        if (game != null) {
+            game.rotatePiece();
+        }
     }
 
     /**
