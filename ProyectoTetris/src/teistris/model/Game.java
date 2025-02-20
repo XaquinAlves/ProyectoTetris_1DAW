@@ -177,15 +177,20 @@ public class Game {
      */
     private void createNewPiece() {
         //Seleccionase aleatoriamente a peza de entre os subtipos dispoñibles
-        int pieceType = new java.util.Random().nextInt(4);
-        if (pieceType == 0) {
-            this.currentPiece = new SquarePiece(this);
-        } else if (pieceType == 1) {
-            this.currentPiece = new BarPiece(this);
-        } else if (pieceType == 2) {
-            this.currentPiece = new LPiece(this);
-        } else {
-            this.currentPiece = new TPiece(this);
+        int pieceType = new java.util.Random().nextInt(7);
+        switch (pieceType) {
+            case 0 ->
+                this.currentPiece = new SquarePiece(this);
+            case 1 ->
+                this.currentPiece = new BarPiece(this);
+            case 2 ->
+                this.currentPiece = new LPiece(this);
+            case 4 ->
+                this.currentPiece = new LInvertedPiece(this);
+            case 5 -> 
+                this.currentPiece = new ZPiece(this);
+            case 6 -> 
+                this.currentPiece  = new ZInvertedPiece(this);
         }
     }
 
@@ -208,9 +213,9 @@ public class Game {
     private void deleteCompletedLines() {
         boolean isEmpty;
 
-        for (int i = 0; i < MAX_Y; i+=SQUARE_SIDE) {
+        for (int i = 0; i < MAX_Y; i += SQUARE_SIDE) {
             isEmpty = false;
-            for (int j = 0; j < MAX_X &&!isEmpty; j+=SQUARE_SIDE) {
+            for (int j = 0; j < MAX_X && !isEmpty; j += SQUARE_SIDE) {
                 if (!groundSquares.containsKey(j + "," + i)) {
                     isEmpty = true;
                 }
@@ -240,16 +245,16 @@ public class Game {
 
         for (int i = y; i >= 0; i -= SQUARE_SIDE) {
             for (int j = 0; j < MAX_X; j += SQUARE_SIDE) {
-                if (groundSquares.containsKey(j + "," + i)){
+                if (groundSquares.containsKey(j + "," + i)) {
 
-                Square tempSq = groundSquares.get(j + "," + i);
-                Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this);
+                    Square tempSq = groundSquares.get(j + "," + i);
+                    Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this);
 
-                groundSquares.put(j + "," + (i + SQUARE_SIDE), sq);
-                mainWindow.drawSquare(sq.getLblSquare());
+                    groundSquares.put(j + "," + (i + SQUARE_SIDE), sq);
+                    mainWindow.drawSquare(sq.getLblSquare());
 
-                mainWindow.deleteSquare(tempSq.getLblSquare());
-                groundSquares.remove(j + "," + i);
+                    mainWindow.deleteSquare(tempSq.getLblSquare());
+                    groundSquares.remove(j + "," + i);
                 }
             }
         }
