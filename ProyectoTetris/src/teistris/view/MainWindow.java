@@ -16,6 +16,7 @@
  */
 package teistris.view;
 
+import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
@@ -31,12 +32,15 @@ import teistris.model.Game;
 public class MainWindow extends javax.swing.JFrame {
 
     private Timer timer;
+    private KeyboardFocusManager manager;
 
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
+        manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        manager.addKeyEventDispatcher(new KeyDispatcher());
     }
 
     private Game game = null; // Referenza ao obxecto do xogo actual
@@ -69,7 +73,7 @@ public class MainWindow extends javax.swing.JFrame {
     public void showNumberOfLines(int numberOfLines) {
         lblNumberOfLines.setText(String.valueOf(numberOfLines));
         if (numberOfLines > 0 && numberOfLines % 10 == 0) {
-            timer.setDelay(timer.getDelay()/2);
+            timer.setDelay(timer.getDelay() / 2);
         }
     }
 
@@ -126,6 +130,11 @@ public class MainWindow extends javax.swing.JFrame {
         setTitle("Teistris");
         setLocation(new java.awt.Point(150, 300));
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                formKeyTyped(evt);
+            }
+        });
 
         btnNewGame.setText("Nova partida");
         btnNewGame.addActionListener(new java.awt.event.ActionListener() {
@@ -322,6 +331,12 @@ public class MainWindow extends javax.swing.JFrame {
             game.movePieceDown();
         }
     }//GEN-LAST:event_btnDownActionPerformed
+
+    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
+        // TODO add your handling code here:
+        manager.dispatchEvent(evt);
+        game.rotatePiece();
+    }//GEN-LAST:event_formKeyTyped
 
     /**
      * @param args the command line arguments
