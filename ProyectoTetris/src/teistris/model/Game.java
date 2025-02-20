@@ -39,11 +39,11 @@ public class Game {
     /**
      * Constante que define o valor máximo da coordenada x no panel de cadrados
      */
-    public final static int MAX_X = 320;
+    public final static int MAX_X = 240;
     /**
      * Constante que define o valor máximo da coordenada y no panel de cadrados
      */
-    public final static int MAX_Y = 300;
+    public final static int MAX_Y = 320;
     /**
      * Referenza á peza actual do xogo, que é a única que se pode mover
      */
