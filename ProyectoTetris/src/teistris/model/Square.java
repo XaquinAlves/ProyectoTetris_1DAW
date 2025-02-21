@@ -80,6 +80,22 @@ public class Square {
         lblSquare.repaint();
     }
 
+    public int getNextX() {
+        return nextX;
+    }
+
+    public void setNextX(int nextX) {
+        this.nextX = nextX;
+    }
+
+    public int getNextY() {
+        return nextY;
+    }
+
+    public void setNextY(int nextY) {
+        this.nextY = nextY;
+    }
+  
     /**
      * Pinta o cadrado na ventana principal
      */

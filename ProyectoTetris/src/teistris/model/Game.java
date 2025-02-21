@@ -261,9 +261,10 @@ public class Game {
                 if (groundSquares.containsKey(j + "," + i)) {
 
                     Square tempSq = groundSquares.get(j + "," + i);
-                    Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this, 0, 0);
+                    Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this, tempSq.getNextX(), tempSq.getNextY());
 
                     groundSquares.put(j + "," + (i + SQUARE_SIDE), sq);
+                    sq.repaintOnMainWindow();
                     mainWindow.drawSquare(sq.getLblSquare());
 
                     mainWindow.deleteSquare(tempSq.getLblSquare());
