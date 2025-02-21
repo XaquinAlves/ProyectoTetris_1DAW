@@ -44,8 +44,7 @@ public class Game {
      * Constante que define o valor máximo da coordenada y no panel de cadrados
      */
     public final static int MAX_Y = 320;
-    
-    public final static int NEXT_POSITION = 27;
+
     /**
      * Referenza á peza actual do xogo, que é a única que se pode mover
      */
@@ -205,7 +204,7 @@ public class Game {
         this.nextPiece = bagPieces.pop();
         
         for (Square sq : currentPiece.getSquares()) {
-            sq.repaint();
+            sq.repaintOnMainWindow();
             mainWindow.drawSquare(sq.getLblSquare());
         }
         
@@ -268,7 +267,7 @@ public class Game {
                 if (groundSquares.containsKey(j + "," + i)) {
 
                     Square tempSq = groundSquares.get(j + "," + i);
-                    Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this);
+                    Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this,0,0);
 
                     groundSquares.put(j + "," + (i + SQUARE_SIDE), sq);
                     mainWindow.drawSquare(sq.getLblSquare());

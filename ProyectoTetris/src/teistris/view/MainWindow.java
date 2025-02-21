@@ -70,11 +70,21 @@ public class MainWindow extends javax.swing.JFrame {
         pnlGame.repaint();
     }
 
+    /**
+     * Debuxa un cadrado no panel de seguinte peza
+     *
+     * @param lblSquare Etiqueta co cadrado que se quere pintar no panel
+     */
     public void drawNextSquare(JLabel lblSquare) {
         pnlNext.add(lblSquare);
         pnlNext.repaint();
     }
 
+    /**
+     * Borra un cadrado do panel de seguinte peza
+     *
+     * @param lblSquare Etiqueta co cadrado que se quere pintar no panel
+     */
     public void deleteNextSquare(JLabel lblSquare) {
         pnlNext.remove(lblSquare);
         pnlNext.repaint();
@@ -257,11 +267,11 @@ public class MainWindow extends javax.swing.JFrame {
         pnlNext.setLayout(pnlNextLayout);
         pnlNextLayout.setHorizontalGroup(
             pnlNextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 75, Short.MAX_VALUE)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
         pnlNextLayout.setVerticalGroup(
             pnlNextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 75, Short.MAX_VALUE)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
 
         pnlSaved.setBackground(java.awt.Color.white);
@@ -304,15 +314,15 @@ public class MainWindow extends javax.swing.JFrame {
                                         .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pnlNext, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(pnlSaved, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2)
-                                    .addComponent(jLabel3)))
+                                    .addComponent(jLabel3)
+                                    .addComponent(pnlNext, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(jPanelControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,8 +345,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(4, 4, 4)
-                        .addComponent(pnlNext, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(pnlNext, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlSaved, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))

@@ -32,7 +32,7 @@ public class Square {
     /**
      * Coordenadas do cadrado no panel do xogo
      */
-    private int x, y;
+    private int x, y, nextX, nextY;
     /**
      * Etiqueta que mostra o cadrado no panel
      */
@@ -80,7 +80,10 @@ public class Square {
         lblSquare.repaint();
     }
 
-    public void repaint() {
+    /**
+     * Pinta o cadrado na ventana principal
+     */
+    public void repaintOnMainWindow() {
         lblSquare.setBounds(x, y, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
         lblSquare.repaint();
     }
@@ -130,17 +133,21 @@ public class Square {
      * @param y Coordenada y
      * @param fillColor Referenza á cor do cadrado
      * @param game Referenza ao obxecto xogo
+     * @param nextX cordenada x no panel seguinte ou gardado
+     * @param nextY cordenada y no panel seguinte ou gardado
      */
-    public Square(int x, int y, Color fillColor, Game game) {
+    public Square(int x, int y, Color fillColor, Game game, int nextX, int nextY) {
         this.x = x;
         this.y = y;
         this.fillColor = fillColor;
+        this.nextX = nextX;
+        this.nextY = nextY;
 
         // Creamos a etiqueta e establecemos a cor de fondo, coordenadas, 
         // e atributos para que se vexa no panel do xogo
         lblSquare = new JLabel();
         lblSquare.setBackground(fillColor);
-        lblSquare.setBounds(Game.NEXT_POSITION, Game.NEXT_POSITION, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
+        lblSquare.setBounds(nextX, nextY, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
         lblSquare.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         lblSquare.setVisible(true);
         lblSquare.setOpaque(true);

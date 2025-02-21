@@ -3,7 +3,8 @@ package teistris.model;
 import java.awt.Color;
 
 /**
- *Clase para a peza de barra
+ * Clase para a peza de barra
+ *
  * @author Mateo
  */
 public class BarPiece extends Piece {
@@ -17,17 +18,26 @@ public class BarPiece extends Piece {
         this.game = game;
 
         squares = new Square[]{
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.YELLOW, game),
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game),
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2, Color.YELLOW, game),
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE * 3, Color.YELLOW, game)
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.YELLOW, game,
+                    Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE),
+            
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
+                    Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 2),
+            
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2,
+                    Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
+            
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE * 3,
+                    Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 4)
         };
 
     }
-    
+
     /**
-     * Método para rotar a peza. Cambia a posición dos cadrados que a compoñen segundo a posición actual
-     * @return 
+     * Método para rotar a peza. Cambia a posición dos cadrados que a compoñen
+     * segundo a posición actual
+     *
+     * @return
      */
     @Override
     public boolean rotate() {
