@@ -4,9 +4,6 @@
  */
 package teistris.model;
 
-import teistris.model.Piece;
-import teistris.model.Square;
-import teistris.model.Game;
 import java.awt.Color;
 
 /**
@@ -24,10 +21,10 @@ public class TPiece extends Piece {
         this.game = game;
 
         squares = new Square[]{
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE - Game.SQUARE_SIDE, Color.RED, game),
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.RED, game),
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2, Color.RED, game),
-            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.RED, game)
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE - Game.SQUARE_SIDE, Color.MAGENTA, game),
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.MAGENTA, game),
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2, Color.MAGENTA, game),
+            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.MAGENTA, game)
         };
 
     }

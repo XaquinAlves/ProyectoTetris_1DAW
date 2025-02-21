@@ -7,8 +7,6 @@ import java.awt.Color;
  * @author Xaquin Alves Gonzalez
  */
 public class ZInvertedPiece extends Piece{
-    
-    private int position;
 
     public ZInvertedPiece(Game game) {
         this.game = game;

@@ -1,6 +1,6 @@
 package teistris.model;
 
-import java.awt.*;
+import java.awt.Color;
 
 /**
  * @author Xaquin Alves Gonzalez

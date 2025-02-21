@@ -4,11 +4,9 @@ import java.awt.Color;
 
 /**
  *
- * @author Xocas
+ * @author Xaquin Alves 
  */
 public class LInvertedPiece extends Piece {
-    
-    private int position;
 
     public LInvertedPiece(Game game) {
         this.game = game;
