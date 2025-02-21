@@ -44,7 +44,7 @@ public class Game {
      * Constante que define o valor máximo da coordenada y no panel de cadrados
      */
     public final static int MAX_Y = 320;
-
+    
     /**
      * Referenza á peza actual do xogo, que é a única que se pode mover
      */
@@ -236,7 +236,11 @@ public class Game {
     private void createNewPiece() {
         //Enchemos a bolsa se esta vacía 
         if (bagPieces.isEmpty()) {
-            bagPieces = BagOfPieces.fillBag(7, this);
+            if(mainWindow.isExtendedGamemode()){
+            bagPieces = BagOfPieces.fillBagExtended(this);
+            }else{
+            bagPieces = BagOfPieces.fillBagClassic(this);
+            }
         }
 
         if (nextPiece == null) {

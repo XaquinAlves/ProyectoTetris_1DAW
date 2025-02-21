@@ -31,6 +31,27 @@ import teistris.model.Game;
 public class MainWindow extends javax.swing.JFrame {
 
     /**
+     * Flag que indica se o modo de xogo e clasico(false) ouu extendido(true)
+     */
+    private boolean extendedGamemode;
+
+    /**
+     * @return se esta no modo de xogo extendido
+     */
+    public boolean isExtendedGamemode() {
+        return extendedGamemode;
+    }
+
+    /**
+     * Establece o modo de xogo
+     *
+     * @param extendedGamemode false = clasico, true = extendido
+     */
+    public void setExtendedGamemode(boolean extendedGamemode) {
+        this.extendedGamemode = extendedGamemode;
+    }
+
+    /**
      * Creates new form MainWindow
      */
     public MainWindow() {
@@ -395,8 +416,14 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
-        // Ao picar no botón de "Nova partida", invocamos ao método privado 
-        // que inicia un novo xogo
+        /**
+         * Ao picar no botón de "Nova partida",Lanzamos o dialogo para escoller modo de xogo e invocamos ao 
+         * método privado que inicia un novo xogo
+         */
+        JDialogGamemode dialogGamemode = new JDialogGamemode(this, rootPaneCheckingEnabled);
+        dialogGamemode.setVisible(true);
+        
+        extendedGamemode = (dialogGamemode.isExtendedGamemode());
         startGame();
     }//GEN-LAST:event_btnNewGameActionPerformed
 

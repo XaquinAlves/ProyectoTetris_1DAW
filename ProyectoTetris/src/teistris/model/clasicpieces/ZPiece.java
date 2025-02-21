@@ -1,6 +1,9 @@
-package teistris.model;
+package teistris.model.clasicpieces;
 
 import java.awt.Color;
+import teistris.model.Game;
+import teistris.model.Piece;
+import teistris.model.Square;
 
 /**
  * @author Xaquin Alves Gonzalez
