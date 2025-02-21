@@ -80,22 +80,42 @@ public class Square {
         lblSquare.repaint();
     }
 
+    /**
+     * Obten a cordenada X do cadrado para os paneis laterais
+     *
+     * @return cordenada x nos paneis laterais
+     */
     public int getNextX() {
         return nextX;
     }
 
+    /**
+     * Establece a cordenada x para o cadrado nos paneis laterais
+     *
+     * @param nextX cordenada x nos paneis laterais
+     */
     public void setNextX(int nextX) {
         this.nextX = nextX;
     }
 
+    /**
+     * Obten a cordenada Y do cadrado para os paneis laterais
+     *
+     * @return cordenada y nos paneis laterais
+     */
     public int getNextY() {
         return nextY;
     }
 
+    /**
+     * Establece a cordenada y para o cadrado nos paneis laterais
+     *
+     * @param nextY cordenada y nos paneis laterais
+     */
     public void setNextY(int nextY) {
         this.nextY = nextY;
     }
-  
+
     /**
      * Pinta o cadrado na ventana principal
      */
