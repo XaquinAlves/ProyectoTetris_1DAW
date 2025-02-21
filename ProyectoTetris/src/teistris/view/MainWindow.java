@@ -35,6 +35,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
+        //Configuramos a entrada por teclado
         manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
         keyDispatcher = new KeyDispatcher();
         manager.addKeyEventDispatcher(keyDispatcher);
@@ -45,7 +46,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private Game game = null; // Referenza ao obxecto do xogo actual
-    private KeyDispatcher keyDispatcher;
+    private KeyDispatcher keyDispatcher; //Capturador de teclas personalizado
     private final Timer timer; //Obxeto timer paa que as pezas baixen solas
     private final KeyboardFocusManager manager; //Para poder capturar as teclas
 

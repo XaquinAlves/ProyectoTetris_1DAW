@@ -199,7 +199,6 @@ public class Game {
                 break;
             case 6:
                 this.currentPiece = new ZInvertedPiece(this);
-                break;
         }
     }
 
