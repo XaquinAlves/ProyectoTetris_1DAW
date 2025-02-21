@@ -16,14 +16,14 @@ public class CrossPiece extends Piece {
         this.game = game;
 
         squares = new Square[]{
-            new Square(Game.MAX_X / 2, 0, Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE),
-            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.YELLOW, game, Game.SQUARE_SIDE * 2,
+            new Square(Game.MAX_X / 2, 0, Color.BLUE, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE),
+            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game, Game.SQUARE_SIDE * 2,
             Game.SQUARE_SIDE * 2),
             new Square(Game.MAX_X / 2, 2 * Game.SQUARE_SIDE,
-            Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
-            new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game,
+            Color.BLUE, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
+            new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.BLUE, game,
             Game.SQUARE_SIDE * 3, Game.SQUARE_SIDE * 2),
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game,
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.BLUE, game,
             Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2)
         };
 

@@ -119,6 +119,11 @@ public class Game {
         this.numberOfLines = numberOfLines;
     }
 
+    public Piece getSavedPiece() {
+        return savedPiece;
+    }
+    
+
     /**
      * Construtor da clase, que crea unha primeira peza
      *
@@ -168,6 +173,7 @@ public class Game {
             this.addPieceToGround();
             this.createNewPiece();
             if (this.hitPieceTheGround()) {
+
                 this.mainWindow.showGameOver();
             }
         }

@@ -22,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import teistris.model.Game;
+import teistris.model.Square;
 
 /**
  * Clase que implementa a ventá principal do xogo do Tetris
@@ -147,6 +148,11 @@ public class MainWindow extends javax.swing.JFrame {
      * Mostra unha mensaxe informando ao usuario do final do xogo
      */
     public void showGameOver() {
+        if (game.getSavedPiece() != null) {
+            for (Square sq : game.getSavedPiece().getSquares()) {
+                deleteSavedSquare(sq.getLblSquare());
+            }
+        }
         game = null;
         keyDispatcher.setGame(null);
         timer.stop();
@@ -418,12 +424,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
         /**
-         * Ao picar no botón de "Nova partida",Lanzamos o dialogo para escoller modo de xogo e invocamos ao 
-         * método privado que inicia un novo xogo
+         * Ao picar no botón de "Nova partida",Lanzamos o dialogo para escoller
+         * modo de xogo e invocamos ao método privado que inicia un novo xogo
          */
         JDialogGamemode dialogGamemode = new JDialogGamemode(this, rootPaneCheckingEnabled);
         dialogGamemode.setVisible(true);
-        
+
         extendedGamemode = (dialogGamemode.isExtendedGamemode());
         startGame();
     }//GEN-LAST:event_btnNewGameActionPerformed
