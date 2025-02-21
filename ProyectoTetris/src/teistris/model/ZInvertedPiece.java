@@ -12,10 +12,17 @@ public class ZInvertedPiece extends Piece{
         this.game = game;
 
         squares = new Square[]{
-            new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, 0, Color.CYAN, game),
-            new Square(Game.MAX_X / 2, 0, Color.CYAN, game),
-            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.CYAN, game),
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.CYAN, game)
+            new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, 0, Color.CYAN, game,
+                    Game.SQUARE_SIDE *3, Game.SQUARE_SIDE*2),
+            
+            new Square(Game.MAX_X / 2, 0, Color.CYAN, game,Game.SQUARE_SIDE,
+                Game.SQUARE_SIDE*2),
+            
+            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.CYAN, game,
+                Game.SQUARE_SIDE, Game.SQUARE_SIDE*3),
+            
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, 
+                    Color.CYAN, game,Game.SQUARE_SIDE, Game.SQUARE_SIDE*3)
         };
 
         position = 0;
