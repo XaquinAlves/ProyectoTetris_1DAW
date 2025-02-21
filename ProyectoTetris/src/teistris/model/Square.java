@@ -137,10 +137,24 @@ public class Square {
         lblSquare.setBackground(fillColor);
         lblSquare.setBounds(x, y, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
         lblSquare.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        lblSquare.setVisible(true);
+        lblSquare.setVisible(false);
         lblSquare.setOpaque(true);
 
         // Chamamos á ventá principal do xogo para pintar o cadrado no panel
         game.getMainWindow().drawSquare(this.lblSquare);
+    }
+
+    /**
+     * Borra o cadrado do panel de xogo(visiblemente, non fisicamente)
+     */
+    public void hide() {
+        lblSquare.setVisible(false);
+    }
+
+    /**
+     * Pinta o cadrado no panel de xogo
+     */
+    public void show() {
+        lblSquare.setVisible(true);
     }
 }

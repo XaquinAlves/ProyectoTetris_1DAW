@@ -18,6 +18,7 @@ package teistris.model;
 
 import teistris.view.MainWindow;
 import java.util.HashMap;
+import java.util.Stack;
 
 /**
  * Clase que implementa o comportamento do xogo do Tetris
@@ -47,6 +48,10 @@ public class Game {
      * Referenza á peza actual do xogo, que é a única que se pode mover
      */
     private Piece currentPiece;
+    /**
+     * Bolsa de pezas das que se saca a peza actual
+     */
+    private Stack<Piece> nextPieces = new Stack<>();
 
     /**
      * Referenza á ventá principal do xogo
@@ -166,39 +171,20 @@ public class Game {
      * @return true se esa posición é válida, se non false
      */
     public boolean isValidPosition(int x, int y) {
-        if ((x == MAX_X) || (x < 0) || (y == MAX_Y) || groundSquares.containsKey(String.valueOf(x) + "," + String.valueOf(y))) {
-            return false;
-        }
-        return true;
+        return !((x == MAX_X) || (x < 0) || (y == MAX_Y) || groundSquares.containsKey(String.valueOf(x) + "," + String.valueOf(y)));
     }
 
     /**
-     * Crea unha nova peza cadrada e a establece como peza actual do xogo
+     * Saca unha peza da bolsa e a establece como peza actual do xogo, se a
+     * bolsa esta vacia, xera unha nova
      */
     private void createNewPiece() {
-        //Seleccionase aleatoriamente a peza de entre os subtipos dispoñibles
-        int pieceType = new java.util.Random().nextInt(7);
-        switch (pieceType) {
-            case 0:
-                this.currentPiece = new SquarePiece(this);
-                break;
-            case 1:
-                this.currentPiece = new BarPiece(this);
-                break;
-            case 2:
-                this.currentPiece = new LPiece(this);
-                break;
-            case 3:
-                this.currentPiece = new TPiece(this);
-                break;
-            case 4:
-                this.currentPiece = new LInvertedPiece(this);
-                break;
-            case 5:
-                this.currentPiece = new ZPiece(this);
-                break;
-            case 6:
-                this.currentPiece = new ZInvertedPiece(this);
+        if (nextPieces.isEmpty()) {
+            nextPieces = BagOfPieces.fillBag(7, this);
+        }
+        this.currentPiece = nextPieces.pop();
+        for (Square sq : currentPiece.getSquares()) {
+            sq.show();
         }
     }
 
