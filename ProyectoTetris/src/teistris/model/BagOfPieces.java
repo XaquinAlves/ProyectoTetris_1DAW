@@ -10,7 +10,7 @@ import teistris.model.clasicpieces.LInvertedPiece;
 import java.util.Random;
 import java.util.Stack;
 import java.util.stream.IntStream;
-
+//TODO: fillBagExtended
 /**
  * Esta clase xenera unha pila con X pezas aleatorias sen repeticion
  *
