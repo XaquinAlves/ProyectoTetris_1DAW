@@ -39,7 +39,7 @@ public class MainWindow extends javax.swing.JFrame {
         keyDispatcher = new KeyDispatcher();
         manager.addKeyEventDispatcher(keyDispatcher);
         //Creamos o timer
-        timer = new Timer(1000, (ActionEvent e) -> {
+        timer = new Timer(1500, (ActionEvent e) -> {
             btnDownActionPerformed(e);
         });
     }
@@ -76,9 +76,9 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public void showNumberOfLines(int numberOfLines) {
         lblNumberOfLines.setText(String.valueOf(numberOfLines));
-        if (numberOfLines > 0 && numberOfLines % 10 == 0) {
-            timer.setDelay(timer.getDelay() / 2);
-        }
+        /*        if (numberOfLines > 0 && numberOfLines % 10 == 0) {
+        timer.setDelay(timer.getDelay() / 2);
+        }*/
     }
 
     /**
@@ -86,6 +86,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public void showGameOver() {
         game = null;
+        keyDispatcher.setGame(null);
         timer.stop();
         JOptionPane.showMessageDialog(this, "Fin do xogo");
     }
@@ -133,11 +134,6 @@ public class MainWindow extends javax.swing.JFrame {
         setTitle("Teistris");
         setLocation(new java.awt.Point(150, 300));
         setResizable(false);
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                formKeyTyped(evt);
-            }
-        });
 
         btnNewGame.setText("Nova partida");
         btnNewGame.addActionListener(new java.awt.event.ActionListener() {
@@ -334,12 +330,6 @@ public class MainWindow extends javax.swing.JFrame {
             game.movePieceDown();
         }
     }//GEN-LAST:event_btnDownActionPerformed
-
-    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
-        // TODO add your handling code here:
-        manager.dispatchEvent(evt);
-        game.rotatePiece();
-    }//GEN-LAST:event_formKeyTyped
 
     /**
      * @param args the command line arguments
