@@ -91,6 +91,26 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     /**
+     * Debuxa un cadrado no panel de peza gardada
+     *
+     * @param lblSquare Etiqueta co cadrado que se quere pintar no panel
+     */
+    public void drawSavedSquare(JLabel lblSquare) {
+        pnlSaved.add(lblSquare);
+        pnlSaved.repaint();
+    }
+
+    /**
+     * Borra un cadrado do panel de peza gardada
+     *
+     * @param lblSquare Etiqueta co cadrado que se quere pintar no panel
+     */
+    public void deleteSavedSquare(JLabel lblSquare) {
+        pnlSaved.remove(lblSquare);
+        pnlSaved.repaint();
+    }
+
+    /**
      * Actualiza na ventá o número de liñas que van feitas no xogo
      *
      * @param numberOfLines Número de liñas feitas no xogo
@@ -151,6 +171,7 @@ public class MainWindow extends javax.swing.JFrame {
         btnRight = new javax.swing.JButton();
         btnLeft = new javax.swing.JButton();
         btnDown = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         pnlNext = new javax.swing.JPanel();
         pnlSaved = new javax.swing.JPanel();
@@ -223,28 +244,39 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        btnSave.setText("Gardar");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelControlsLayout = new javax.swing.GroupLayout(jPanelControls);
         jPanelControls.setLayout(jPanelControlsLayout);
         jPanelControlsLayout.setHorizontalGroup(
             jPanelControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelControlsLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanelControlsLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanelControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelControlsLayout.createSequentialGroup()
+                        .addGroup(jPanelControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelControlsLayout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelControlsLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(btnDown, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelControlsLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelControlsLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(btnRotate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanelControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDown, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRotate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
         jPanelControlsLayout.setVerticalGroup(
             jPanelControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelControlsLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelControlsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelControlsLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
@@ -254,9 +286,11 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(btnDown))
                     .addGroup(jPanelControlsLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(btnRight))
+                        .addGroup(jPanelControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnRight)
+                            .addComponent(btnSave)))
                     .addComponent(btnRotate))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jLabel1.setText("Feito por: Mateo e Xaquin");
@@ -406,6 +440,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDownActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        if (game != null) {
+            game.savePiece();
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -448,6 +489,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnNewGame;
     private javax.swing.JButton btnRight;
     private javax.swing.JButton btnRotate;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

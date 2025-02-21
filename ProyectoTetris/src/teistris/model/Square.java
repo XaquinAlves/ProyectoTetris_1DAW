@@ -125,6 +125,14 @@ public class Square {
     }
 
     /**
+     * Pinta o cadrado no panel lateral de gardado
+     */
+    public void repaintOnSaved() {
+        lblSquare.setBounds(nextX, nextY, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
+        lblSquare.repaint();
+    }
+
+    /**
      * Obtén a representación das coordenadas x, y do cadrado en forma de String
      *
      * @return O string que representa as coordenadas x,y do cadrado

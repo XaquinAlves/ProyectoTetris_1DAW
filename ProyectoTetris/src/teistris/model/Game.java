@@ -50,9 +50,13 @@ public class Game {
      */
     private Piece currentPiece;
     /**
-     *
+     * Referenza a seguinte penza que saldra
      */
     private Piece nextPiece;
+    /**
+     * Referenza a peza en reserva
+     */
+    private Piece savedPiece;
     /**
      * Bolsa de pezas das que se saca a peza actual
      */
@@ -123,6 +127,7 @@ public class Game {
     public Game(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
         this.createNewPiece();
+        savedPiece = null;
         this.groundSquares = new HashMap<>();
     }
 
@@ -164,6 +169,43 @@ public class Game {
             this.createNewPiece();
             if (this.hitPieceTheGround()) {
                 this.mainWindow.showGameOver();
+            }
+        }
+    }
+
+    public void savePiece() {
+        if (!paused) {
+            if (savedPiece == null) {
+
+                savedPiece = currentPiece;
+
+                for (Square sq : savedPiece.getSquares()) {
+
+                    mainWindow.deleteSquare(sq.getLblSquare());
+
+                    sq.repaintOnSaved();
+
+                    mainWindow.drawSavedSquare(sq.getLblSquare());
+                }
+
+                createNewPiece();
+            } else {
+
+                Piece temp = currentPiece;
+                currentPiece = savedPiece;
+                savedPiece = temp;
+
+                for (Square sq : currentPiece.getSquares()) {
+                    mainWindow.deleteSavedSquare(sq.getLblSquare());
+                    sq.repaintOnMainWindow();
+                    mainWindow.drawSquare(sq.getLblSquare());
+                }
+
+                for (Square sq : savedPiece.getSquares()) {
+                    mainWindow.deleteSquare(sq.getLblSquare());
+                    sq.repaintOnSaved();
+                    mainWindow.drawSavedSquare(sq.getLblSquare());
+                }
             }
         }
     }
