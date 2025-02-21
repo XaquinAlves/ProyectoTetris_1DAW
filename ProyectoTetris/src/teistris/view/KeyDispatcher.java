@@ -47,6 +47,8 @@ public class KeyDispatcher implements KeyEventDispatcher {
                 game.movePieceRight();
             } else if (e.getKeyChar() == 's' || e.getKeyCode() == KeyEvent.VK_DOWN) {
                 game.movePieceDown();
+            }else if(e.getKeyChar() == 'c'){
+                game.savePiece();
             }
 
         }
