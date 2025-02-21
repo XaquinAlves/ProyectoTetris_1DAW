@@ -1,9 +1,8 @@
-package model.Pieces;
+package teistris.model.extendedpieces;
 
-import model.Game;
-import model.Square;
+import  teistris.model.Game;
+import teistris.model.Piece;
 
-import java.awt.*;
 
 public class CrossPiece extends Piece{
 
@@ -15,14 +14,14 @@ public class CrossPiece extends Piece{
     public CrossPiece(Game game) {
         this.game = game;
 
-        squares = new Square[]{
-                new Square(Game.MAX_X / 2, 0, Color.YELLOW, game),
-                new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.YELLOW, game),
-                new Square(Game.MAX_X / 2, 2*Game.SQUARE_SIDE,
-                        Color.YELLOW, game),
-                new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game),
-                new Square(Game.MAX_X/2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game)
-        };
+        /*        squares = new Square[]{
+        new Square(Game.MAX_X / 2, 0, Color.YELLOW, game),
+        new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.YELLOW, game),
+        new Square(Game.MAX_X / 2, 2*Game.SQUARE_SIDE,
+        Color.YELLOW, game),
+        new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game),
+        new Square(Game.MAX_X/2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game)
+        };*/
 
     }
     /**
