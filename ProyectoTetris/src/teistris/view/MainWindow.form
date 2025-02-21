@@ -33,29 +33,34 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btnNewGame" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblLines" min="-2" pref="50" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblNumberOfLines" min="-2" pref="46" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                          <Component id="tglbtnPause" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="pnlGame" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="btnNewGame" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblLines" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblNumberOfLines" min="-2" pref="46" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                                      <Component id="tglbtnPause" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="pnlNext" max="32767" attributes="0"/>
-                                  <Component id="pnlSaved" max="32767" attributes="0"/>
+                                  <Component id="pnlGame" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelRotar" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabelControlGardar" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelGardada" min="-2" max="-2" attributes="0"/>
+                              <Component id="pnlNext" max="32767" attributes="0"/>
+                              <Component id="pnlSaved" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jLabelEsquerda" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDereita" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAbaixo" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelSeguinte" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -71,34 +76,45 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelRotar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnNewGame" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblLines" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNumberOfLines" min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="btnNewGame" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lblLines" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumberOfLines" min="-2" pref="18" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="tglbtnPause" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabelEsquerda" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tglbtnPause" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelDereita" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelAbaixo" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="pnlGame" min="-2" pref="320" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabelControlGardar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabelSeguinte" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlNext" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelGardada" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlSaved" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="pnlGame" min="-2" pref="320" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanelControls" min="-2" max="-2" attributes="0"/>
@@ -310,14 +326,39 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jLabelSeguinte">
       <Properties>
         <Property name="text" type="java.lang.String" value="Seguinte:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="jLabelGardada">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gardada:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelRotar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rotar: w ou flecha arriba"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelEsquerda">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Esquerda: a ou felcha izq"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelDereita">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dereita: d ou flecha drc"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAbaixo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Abaixo: s ou flecha abx"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelControlGardar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gardar peza: c ou g"/>
       </Properties>
     </Component>
   </SubComponents>
