@@ -186,6 +186,8 @@ public class Game {
                     sq.repaintOnSaved();
 
                     mainWindow.drawSavedSquare(sq.getLblSquare());
+                    
+                    sq.resetPosition();
                 }
 
                 createNewPiece();
@@ -205,6 +207,7 @@ public class Game {
                     mainWindow.deleteSquare(sq.getLblSquare());
                     sq.repaintOnSaved();
                     mainWindow.drawSavedSquare(sq.getLblSquare());
+                    sq.resetPosition();
                 }
             }
         }

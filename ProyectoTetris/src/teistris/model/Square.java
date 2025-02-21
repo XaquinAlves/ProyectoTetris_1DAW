@@ -32,7 +32,15 @@ public class Square {
     /**
      * Coordenadas do cadrado no panel do xogo
      */
-    private int x, y, nextX, nextY;
+    private int x, y;
+    /**
+     * Cordenadas do cadrado no panel lateral
+     */
+    private int nextX, nextY;
+    /**
+     * 
+     */
+    private final int initialX, initialY;
     /**
      * Etiqueta que mostra o cadrado no panel
      */
@@ -186,6 +194,8 @@ public class Square {
         this.fillColor = fillColor;
         this.nextX = nextX;
         this.nextY = nextY;
+        this.initialX = x;
+        this.initialY = y;
 
         // Creamos a etiqueta e establecemos a cor de fondo, coordenadas, 
         // e atributos para que se vexa no panel do xogo
@@ -212,5 +222,10 @@ public class Square {
      */
     public void show() {
         lblSquare.setVisible(true);
+    }
+    
+    public void resetPosition(){
+        this.x = initialX;
+        this.y = initialY;
     }
 }
