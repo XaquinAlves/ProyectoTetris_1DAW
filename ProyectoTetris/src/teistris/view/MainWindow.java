@@ -149,9 +149,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public void showGameOver() {
         if (game.getSavedPiece() != null) {
-            for (Square sq : game.getSavedPiece().getSquares()) {
-                deleteSavedSquare(sq.getLblSquare());
-            }
+            game.deleteSavedPiece();
         }
         game = null;
         keyDispatcher.setGame(null);
@@ -167,6 +165,10 @@ public class MainWindow extends javax.swing.JFrame {
         pnlGame.removeAll();
         pnlNext.removeAll();
         pnlSaved.removeAll();
+        if(game != null){
+            game.deleteSavedPiece();
+            game = null;
+        }
         // Creamos un novo obxecto xogo
         game = new Game(this);
         // Desactivamos o botón de pausa

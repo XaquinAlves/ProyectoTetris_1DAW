@@ -44,7 +44,7 @@ public class Game {
      * Constante que define o valor máximo da coordenada y no panel de cadrados
      */
     public final static int MAX_Y = 320;
-    
+
     /**
      * Referenza á peza actual do xogo, que é a única que se pode mover
      */
@@ -122,7 +122,6 @@ public class Game {
     public Piece getSavedPiece() {
         return savedPiece;
     }
-    
 
     /**
      * Construtor da clase, que crea unha primeira peza
@@ -178,7 +177,7 @@ public class Game {
             }
         }
     }
-    
+
     /**
      * Garda unha peza, para poder usala mais adiante
      */
@@ -196,12 +195,12 @@ public class Game {
                     sq.repaintOnSaved();
 
                     mainWindow.drawSavedSquare(sq.getLblSquare());
-                    
+
                     sq.resetPosition();
                 }
 
                 createNewPiece();
-            //Si hay peza gardada, gardamos a actual e pomos a gardada comon actual  
+                //Si hay peza gardada, gardamos a actual e pomos a gardada comon actual  
             } else {
 
                 Piece temp = currentPiece;
@@ -242,10 +241,10 @@ public class Game {
     private void createNewPiece() {
         //Enchemos a bolsa se esta vacía 
         if (bagPieces.isEmpty()) {
-            if(mainWindow.isExtendedGamemode()){
-            bagPieces = BagOfPieces.fillBagExtended(this);
-            }else{
-            bagPieces = BagOfPieces.fillBagClassic(this);
+            if (mainWindow.isExtendedGamemode()) {
+                bagPieces = BagOfPieces.fillBagExtended(this);
+            } else {
+                bagPieces = BagOfPieces.fillBagClassic(this);
             }
         }
 
@@ -277,6 +276,16 @@ public class Game {
         }
         // Chamamos ao método que borra as liñas do chan que estean completas
         this.deleteCompletedLines();
+    }
+
+    /**
+     * Borra a peza gardada
+     */
+    public void deleteSavedPiece() {
+        for (Square sq : savedPiece.getSquares()) {
+            mainWindow.deleteSavedSquare(sq.getLblSquare());
+        }
+        savedPiece = null;
     }
 
     /**
