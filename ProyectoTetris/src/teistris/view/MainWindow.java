@@ -118,6 +118,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void startGame() {
         // Limpamos todo o que puidese haber pintado no panel do xogo
         pnlGame.removeAll();
+        pnlNext.removeAll();
         // Creamos un novo obxecto xogo
         game = new Game(this);
         // Desactivamos o botón de pausa

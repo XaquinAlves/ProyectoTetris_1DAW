@@ -50,7 +50,7 @@ public class Game {
      */
     private Piece currentPiece;
     /**
-     * 
+     *
      */
     private Piece nextPiece;
     /**
@@ -183,33 +183,27 @@ public class Game {
      * Saca unha peza da bolsa e a establece como peza actual do xogo, se a
      * bolsa esta vacia, xera unha nova
      */
-    private void createNewPiece() {        
+    private void createNewPiece() {
         //Enchemos a bolsa se esta vacía 
         if (bagPieces.isEmpty()) {
             bagPieces = BagOfPieces.fillBag(7, this);
         }
-        
-        if(nextPiece == null){
+
+        if (nextPiece == null) {
             this.nextPiece = bagPieces.pop();
-        }else{
-            for(Square sq: nextPiece.squares){
-                mainWindow.deleteNextSquare(sq.getLblSquare());               
-            }
         }
-        
-        
-        
+
         this.currentPiece = this.nextPiece;
-        
+
         this.nextPiece = bagPieces.pop();
-        
+
         for (Square sq : currentPiece.getSquares()) {
             sq.repaintOnMainWindow();
             mainWindow.drawSquare(sq.getLblSquare());
         }
-        
-        for(Square sq: nextPiece.getSquares()){
-            mainWindow.drawNextSquare(sq.getLblSquare());            
+
+        for (Square sq : nextPiece.getSquares()) {
+            mainWindow.drawNextSquare(sq.getLblSquare());
         }
     }
 
@@ -267,7 +261,7 @@ public class Game {
                 if (groundSquares.containsKey(j + "," + i)) {
 
                     Square tempSq = groundSquares.get(j + "," + i);
-                    Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this,0,0);
+                    Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this, 0, 0);
 
                     groundSquares.put(j + "," + (i + SQUARE_SIDE), sq);
                     mainWindow.drawSquare(sq.getLblSquare());
