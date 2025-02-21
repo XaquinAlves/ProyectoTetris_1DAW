@@ -26,6 +26,7 @@ import javax.swing.text.Position;
  * @author Mateo Alfaya & Xaquin Alves
  */
 public abstract class Piece {
+
     /**
      * Atributo usado para a rotación das pezas
      */
@@ -62,6 +63,14 @@ public abstract class Piece {
      */
     public Square[] getSquares() {
         return squares;
+    }
+
+    /**
+     *
+     * @return posicion da rotacion da peza
+     */
+    public int getPosition() {
+        return position;
     }
 
     /**

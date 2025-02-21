@@ -185,7 +185,9 @@ public class Game {
         if (!paused) {
             // Si non hay peza gardada, gardamos a actual e xeramos unha nova
             if (savedPiece == null) {
-
+                do {
+                    currentPiece.rotate();
+                } while (currentPiece.getPosition() != 0);
                 savedPiece = currentPiece;
 
                 for (Square sq : savedPiece.getSquares()) {
@@ -202,7 +204,9 @@ public class Game {
                 createNewPiece();
                 //Si hay peza gardada, gardamos a actual e pomos a gardada comon actual  
             } else {
-
+                do {
+                    currentPiece.rotate();
+                } while (currentPiece.getPosition() != 0);
                 Piece temp = currentPiece;
                 currentPiece = savedPiece;
                 savedPiece = temp;
