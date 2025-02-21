@@ -44,14 +44,20 @@ public class Game {
      * Constante que define o valor máximo da coordenada y no panel de cadrados
      */
     public final static int MAX_Y = 320;
+    
+    public final static int NEXT_POSITION = 27;
     /**
      * Referenza á peza actual do xogo, que é a única que se pode mover
      */
     private Piece currentPiece;
     /**
+     * 
+     */
+    private Piece nextPiece;
+    /**
      * Bolsa de pezas das que se saca a peza actual
      */
-    private Stack<Piece> nextPieces = new Stack<>();
+    private Stack<Piece> bagPieces = new Stack<>();
 
     /**
      * Referenza á ventá principal do xogo
@@ -178,13 +184,33 @@ public class Game {
      * Saca unha peza da bolsa e a establece como peza actual do xogo, se a
      * bolsa esta vacia, xera unha nova
      */
-    private void createNewPiece() {
-        if (nextPieces.isEmpty()) {
-            nextPieces = BagOfPieces.fillBag(7, this);
+    private void createNewPiece() {        
+        //Enchemos a bolsa se esta vacía 
+        if (bagPieces.isEmpty()) {
+            bagPieces = BagOfPieces.fillBag(7, this);
         }
-        this.currentPiece = nextPieces.pop();
+        
+        if(nextPiece == null){
+            this.nextPiece = bagPieces.pop();
+        }else{
+            for(Square sq: nextPiece.squares){
+                mainWindow.deleteNextSquare(sq.getLblSquare());               
+            }
+        }
+        
+        
+        
+        this.currentPiece = this.nextPiece;
+        
+        this.nextPiece = bagPieces.pop();
+        
         for (Square sq : currentPiece.getSquares()) {
-            sq.show();
+            sq.repaint();
+            mainWindow.drawSquare(sq.getLblSquare());
+        }
+        
+        for(Square sq: nextPiece.getSquares()){
+            mainWindow.drawNextSquare(sq.getLblSquare());            
         }
     }
 

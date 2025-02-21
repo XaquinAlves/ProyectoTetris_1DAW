@@ -80,6 +80,11 @@ public class Square {
         lblSquare.repaint();
     }
 
+    public void repaint() {
+        lblSquare.setBounds(x, y, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
+        lblSquare.repaint();
+    }
+
     /**
      * Obtén a representación das coordenadas x, y do cadrado en forma de String
      *
@@ -135,13 +140,13 @@ public class Square {
         // e atributos para que se vexa no panel do xogo
         lblSquare = new JLabel();
         lblSquare.setBackground(fillColor);
-        lblSquare.setBounds(x, y, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
+        lblSquare.setBounds(Game.NEXT_POSITION, Game.NEXT_POSITION, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
         lblSquare.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        lblSquare.setVisible(false);
+        lblSquare.setVisible(true);
         lblSquare.setOpaque(true);
 
         // Chamamos á ventá principal do xogo para pintar o cadrado no panel
-        game.getMainWindow().drawSquare(this.lblSquare);
+        //game.getMainWindow().drawSquare(this.lblSquare);
     }
 
     /**
