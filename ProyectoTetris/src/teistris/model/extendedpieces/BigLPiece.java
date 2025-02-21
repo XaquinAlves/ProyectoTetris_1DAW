@@ -1,7 +1,9 @@
 package teistris.model.extendedpieces;
 
+import java.awt.Color;
 import teistris.model.Game;
 import teistris.model.Piece;
+import teistris.model.Square;
 
 public class BigLPiece extends Piece {
 
@@ -13,13 +15,13 @@ public class BigLPiece extends Piece {
     public BigLPiece(Game game) {
         this.game = game;
 
-        /*        squares = new Square[]{
-        new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.ORANGE, game),
-        new Square(Game.MAX_X / 2, 0, Color.ORANGE, game),
-        new Square(Game.MAX_X / 2, 2 * Game.SQUARE_SIDE, Color.ORANGE, game),
-        new Square(Game.MAX_X / 2, 3 * Game.SQUARE_SIDE, Color.ORANGE, game),
-        new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, 3 * Game.SQUARE_SIDE, Color.ORANGE, game)
-        };*/
+        squares = new Square[]{
+            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.ORANGE, game,Game.SQUARE_SIDE * 2,Game.SQUARE_SIDE ),
+            new Square(Game.MAX_X / 2, 0, Color.ORANGE, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 2),
+            new Square(Game.MAX_X / 2, 2 * Game.SQUARE_SIDE, Color.ORANGE, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
+            new Square(Game.MAX_X / 2, 3 * Game.SQUARE_SIDE, Color.ORANGE, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 4),
+            new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, 3 * Game.SQUARE_SIDE, Color.ORANGE, game, Game.SQUARE_SIDE * 3, Game.SQUARE_SIDE * 4)
+        };
 
         position = 0;
 
