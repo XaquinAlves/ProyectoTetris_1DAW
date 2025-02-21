@@ -1,10 +1,11 @@
 package teistris.model.extendedpieces;
 
-import  teistris.model.Game;
+import java.awt.Color;
+import teistris.model.Game;
 import teistris.model.Piece;
+import teistris.model.Square;
 
-
-public class CrossPiece extends Piece{
+public class CrossPiece extends Piece {
 
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
@@ -14,16 +15,20 @@ public class CrossPiece extends Piece{
     public CrossPiece(Game game) {
         this.game = game;
 
-        /*        squares = new Square[]{
-        new Square(Game.MAX_X / 2, 0, Color.YELLOW, game),
-        new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.YELLOW, game),
-        new Square(Game.MAX_X / 2, 2*Game.SQUARE_SIDE,
-        Color.YELLOW, game),
-        new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game),
-        new Square(Game.MAX_X/2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game)
-        };*/
+        squares = new Square[]{
+            new Square(Game.MAX_X / 2, 0, Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE),
+            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.YELLOW, game, Game.SQUARE_SIDE * 2,
+            Game.SQUARE_SIDE * 2),
+            new Square(Game.MAX_X / 2, 2 * Game.SQUARE_SIDE,
+            Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
+            new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game,
+            Game.SQUARE_SIDE * 3, Game.SQUARE_SIDE * 2),
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.YELLOW, game,
+            Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2)
+        };
 
     }
+
     /**
      * Rota a ficha se é posible
      *

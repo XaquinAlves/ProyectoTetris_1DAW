@@ -20,7 +20,6 @@ public class FPiece extends Piece {
         new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, 2 * Game.SQUARE_SIDE, Color.ORANGE, game),
         new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, Color.ORANGE, game)
         };*/
-
         position = 0;
 
     }
@@ -134,6 +133,6 @@ public class FPiece extends Piece {
         yield false;
         }
         };*/
- return false;
+        return false;
     }
 }
