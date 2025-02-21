@@ -36,11 +36,18 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        keyDispatcher = new KeyDispatcher();
+        manager.addKeyEventDispatcher(keyDispatcher);
+        //Creamos o timer
+        timer = new Timer(1000, (ActionEvent e) -> {
+            btnDownActionPerformed(e);
+        });
     }
 
     private Game game = null; // Referenza ao obxecto do xogo actual
-    private Timer timer; //Obxeto timer paa que as pezas baixen solas
-    private KeyboardFocusManager manager; //Para poder capturar as teclas
+    private KeyDispatcher keyDispatcher;
+    private final Timer timer; //Obxeto timer paa que as pezas baixen solas
+    private final KeyboardFocusManager manager; //Para poder capturar as teclas
 
     /**
      * Pinta un cadrado no panel de cadrados
@@ -79,6 +86,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public void showGameOver() {
         game = null;
+        timer.stop();
         JOptionPane.showMessageDialog(this, "Fin do xogo");
     }
 
@@ -94,16 +102,10 @@ public class MainWindow extends javax.swing.JFrame {
         tglbtnPause.setSelected(false);
         // Establecemos o número de liñas que se mostran na ventá a cero
         lblNumberOfLines.setText("0");
-        //Creamos o timer
-        timer = new Timer(1000, (ActionEvent e) -> {
-            btnDownActionPerformed(e);
-        });
         //Arrancamos o timer
-        timer.start();
+        timer.restart();
         //Configuramos o capturador de teclas
-        KeyDispatcher kdp = new KeyDispatcher();
-        kdp.setGame(game);
-        manager.addKeyEventDispatcher(kdp);
+        keyDispatcher.setGame(game);
     }
 
     /**

@@ -179,17 +179,22 @@ public class Game {
         //Seleccionase aleatoriamente a peza de entre os subtipos dispoñibles
         int pieceType = new java.util.Random().nextInt(7);
         switch (pieceType) {
-            case 0 ->
+            case 0 :
                 this.currentPiece = new SquarePiece(this);
-            case 1 ->
+                break;
+            case 1 :
                 this.currentPiece = new BarPiece(this);
-            case 2 ->
+                break;
+            case 2 :
                 this.currentPiece = new LPiece(this);
-            case 4 ->
+                break;
+            case 4 :
                 this.currentPiece = new LInvertedPiece(this);
-            case 5 -> 
+                break;
+            case 5 : 
                 this.currentPiece = new ZPiece(this);
-            case 6 -> 
+                break;
+            case 6 : 
                 this.currentPiece  = new ZInvertedPiece(this);
         }
     }
