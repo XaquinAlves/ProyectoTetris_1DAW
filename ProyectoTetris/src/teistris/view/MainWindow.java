@@ -244,7 +244,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        btnSave.setText("Gardar");
+        btnSave.setText("Gardar(c)");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
