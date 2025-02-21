@@ -172,9 +172,13 @@ public class Game {
             }
         }
     }
-
+    
+    /**
+     * Garda unha peza, para poder usala mais adiante
+     */
     public void savePiece() {
         if (!paused) {
+            // Si non hay peza gardada, gardamos a actual e xeramos unha nova
             if (savedPiece == null) {
 
                 savedPiece = currentPiece;
@@ -191,6 +195,7 @@ public class Game {
                 }
 
                 createNewPiece();
+            //Si hay peza gardada, gardamos a actual e pomos a gardada comon actual  
             } else {
 
                 Piece temp = currentPiece;

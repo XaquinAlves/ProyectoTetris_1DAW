@@ -38,7 +38,7 @@ public class Square {
      */
     private int nextX, nextY;
     /**
-     * 
+     *
      */
     private final int initialX, initialY;
     /**
@@ -223,8 +223,11 @@ public class Square {
     public void show() {
         lblSquare.setVisible(true);
     }
-    
-    public void resetPosition(){
+
+    /**
+     * Resetea o cadrado a posicion inicial
+     */
+    public void resetPosition() {
         this.x = initialX;
         this.y = initialY;
     }
