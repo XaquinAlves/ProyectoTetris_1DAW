@@ -14,10 +14,10 @@ public class LInvertedPiece extends Piece {
         this.game = game;
 
         squares = new Square[]{
-            new Square(Game.MAX_X / 2, 0, Color.BLUE, game),
-            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game),
-            new Square(Game.MAX_X / 2, 2 * Game.SQUARE_SIDE, Color.BLUE, game),
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 2 * Game.SQUARE_SIDE, Color.BLUE, game)
+            new Square(Game.MAX_X / 2, 0, Color.ORANGE, game),
+            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.ORANGE, game),
+            new Square(Game.MAX_X / 2, 2 * Game.SQUARE_SIDE, Color.ORANGE, game),
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 2 * Game.SQUARE_SIDE, Color.ORANGE, game)
         };
 
         position = 0;

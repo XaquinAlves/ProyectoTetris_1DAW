@@ -39,7 +39,7 @@ public class MainWindow extends javax.swing.JFrame {
         keyDispatcher = new KeyDispatcher();
         manager.addKeyEventDispatcher(keyDispatcher);
         //Creamos o timer
-        timer = new Timer(1500, (ActionEvent e) -> {
+        timer = new Timer(1000, (ActionEvent e) -> {
             btnDownActionPerformed(e);
         });
     }
@@ -76,9 +76,9 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public void showNumberOfLines(int numberOfLines) {
         lblNumberOfLines.setText(String.valueOf(numberOfLines));
-        /*        if (numberOfLines > 0 && numberOfLines % 10 == 0) {
-        timer.setDelay(timer.getDelay() / 2);
-        }*/
+        if (numberOfLines > 0 && numberOfLines % 10 == 0) {
+            timer.setDelay(timer.getDelay() / 2);
+        }
     }
 
     /**
