@@ -40,7 +40,7 @@ public class MainWindow extends javax.swing.JFrame {
         keyDispatcher = new KeyDispatcher();
         manager.addKeyEventDispatcher(keyDispatcher);
         //Creamos o timer
-        timer = new Timer(1000, (ActionEvent e) -> {
+        timer = new Timer(2000, (ActionEvent e) -> {
             btnDownActionPerformed(e);
         });
     }
@@ -105,6 +105,7 @@ public class MainWindow extends javax.swing.JFrame {
         // Establecemos o número de liñas que se mostran na ventá a cero
         lblNumberOfLines.setText("0");
         //Arrancamos o timer
+        timer.setDelay(2000);
         timer.restart();
         //Configuramos o capturador de teclas
         keyDispatcher.setGame(game);
