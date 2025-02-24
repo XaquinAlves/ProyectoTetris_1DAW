@@ -11,8 +11,10 @@ import java.util.Random;
 import java.util.Stack;
 import java.util.stream.IntStream;
 import teistris.model.extendedpieces.BigLPiece;
+import teistris.model.extendedpieces.BridgePiece;
 import teistris.model.extendedpieces.CrossPiece;
 //TODO: fillBagExtended
+
 /**
  * Esta clase xenera unha pila con X pezas aleatorias sen repeticion
  *
@@ -26,7 +28,7 @@ public class BagOfPieces {
      * @param game referencia a partida actual
      * @return pila de pezas
      */
-    public static Stack<Piece> fillBagClassic( Game game) {
+    public static Stack<Piece> fillBagClassic(Game game) {
         int[] piecesIds = generateBag(7);
         Stack<Piece> pieces = new Stack<>();
 
@@ -57,15 +59,15 @@ public class BagOfPieces {
 
         return pieces;
     }
-    
-        /**
+
+    /**
      * Obten unha pila de pezas aleatorias sen repeticion
      *
      * @param game referencia a partida actual
      * @return pila de pezas
      */
-    public static Stack<Piece> fillBagExtended( Game game) {
-        int[] piecesIds = generateBag(9);
+    public static Stack<Piece> fillBagExtended(Game game) {
+        int[] piecesIds = generateBag(10);
         Stack<Piece> pieces = new Stack<>();
 
         for (int i = 0; i < piecesIds.length; i++) {
@@ -96,6 +98,9 @@ public class BagOfPieces {
                     break;
                 case 8:
                     pieces.add(new BigLPiece(game));
+                    break;
+                case 9:
+                    pieces.add(new BridgePiece(game));
                     break;
             }
         }
