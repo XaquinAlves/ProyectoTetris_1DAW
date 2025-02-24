@@ -177,17 +177,12 @@ public class Game {
             }
         }
     }
-    //TODO: mellorar gardar
+
     /**
      * Garda unha peza, para poder usala mais adiante
      */
     public void savePiece() {
-        if (!paused && currentPiece.rotate()) {
-            
-            do {
-                currentPiece.rotate();
-            } while (currentPiece.getPosition() != 0);
-
+        if (!paused && currentPiece.moveDown()) {
             // Si non hay peza gardada, gardamos a actual e xeramos unha nova
             if (savedPiece == null) {
 
@@ -201,8 +196,9 @@ public class Game {
 
                     mainWindow.drawSavedSquare(sq.getLblSquare());
 
-                    sq.resetPosition();
                 }
+
+                savedPiece.resetPiece();
 
                 createNewPiece();
                 //Si hay peza gardada, gardamos a actual e pomos a gardada comon actual  
@@ -222,8 +218,9 @@ public class Game {
                     mainWindow.deleteSquare(sq.getLblSquare());
                     sq.repaintOnSaved();
                     mainWindow.drawSavedSquare(sq.getLblSquare());
-                    sq.resetPosition();
                 }
+
+                savedPiece.resetPiece();
             }
         }
     }

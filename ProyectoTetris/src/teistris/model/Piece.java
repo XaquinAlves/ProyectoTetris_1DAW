@@ -16,9 +16,6 @@
  */
 package teistris.model;
 
-import java.awt.Color;
-import javax.swing.text.Position;
-
 /**
  * Clase que implementa a peza cadrada do xogo do Tetris
  *
@@ -137,6 +134,14 @@ public abstract class Piece {
         }
 
         return true;
+    }
+    
+    public void resetPiece(){
+        for(Square sq: squares){
+            sq.resetPosition();
+        }
+        
+        position = 0;
     }
 
     /**
