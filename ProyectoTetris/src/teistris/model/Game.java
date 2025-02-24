@@ -177,17 +177,20 @@ public class Game {
             }
         }
     }
-
+    //TODO: a veces, gardar cando a peza esta cerca do chan, peta(creo q esta solved)
     /**
      * Garda unha peza, para poder usala mais adiante
      */
     public void savePiece() {
-        if (!paused) {
+        if (!paused && currentPiece.moveDown()) {
+            
+            do {
+                currentPiece.rotate();
+            } while (currentPiece.getPosition() != 0);
+
             // Si non hay peza gardada, gardamos a actual e xeramos unha nova
             if (savedPiece == null) {
-                do {
-                    currentPiece.rotate();
-                } while (currentPiece.getPosition() != 0);
+
                 savedPiece = currentPiece;
 
                 for (Square sq : savedPiece.getSquares()) {
@@ -204,9 +207,7 @@ public class Game {
                 createNewPiece();
                 //Si hay peza gardada, gardamos a actual e pomos a gardada comon actual  
             } else {
-                do {
-                    currentPiece.rotate();
-                } while (currentPiece.getPosition() != 0);
+
                 Piece temp = currentPiece;
                 currentPiece = savedPiece;
                 savedPiece = temp;
