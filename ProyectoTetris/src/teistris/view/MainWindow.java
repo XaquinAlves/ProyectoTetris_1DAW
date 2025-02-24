@@ -164,14 +164,14 @@ public class MainWindow extends javax.swing.JFrame {
         pnlGame.removeAll();
         pnlNext.removeAll();
         pnlSaved.removeAll();
-
+        //Borramos o obxeto da partida anterior
         if (game != null) {
+            //Borramos a ficha do panel gardado
             if (game.getSavedPiece() != null) {
                 game.deleteSavedPiece();
             }
             game = null;
         }
-
         // Creamos un novo obxecto xogo
         game = new Game(this);
         // Desactivamos o botón de pausa

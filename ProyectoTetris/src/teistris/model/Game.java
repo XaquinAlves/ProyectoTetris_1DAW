@@ -16,9 +16,13 @@
  */
 package teistris.model;
 
+import java.awt.Color;
+import java.util.ArrayList;
 import teistris.view.MainWindow;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Stack;
+import java.util.stream.IntStream;
 
 /**
  * Clase que implementa o comportamento do xogo do Tetris
@@ -343,6 +347,41 @@ public class Game {
                 }
             }
         }
+    }
+
+    /**
+     * Engade unha linea con cadrados aleatorios no chan, empurrando as demais
+     * hacia arriba
+     */
+    public void addLine() {
+        //Cantidade de cadrados que apareceran, de 3 a 11
+        int numberOfSquares = new java.util.Random().nextInt(9) + 3;
+        //Posibles posicions no eixo Y
+        int[] positions = IntStream.rangeClosed(0, 11).toArray();
+        //Para gardar temporalmente os cadrados creados
+        ArrayList<Square> squares = new ArrayList<>();
+        //Desordenamos as posicions
+        Random r = new Random();
+        for (int i = positions.length; i > 0; i--) {
+            int posicion = r.nextInt(i);
+            int tmp = positions[i - 1];
+            positions[i - 1] = positions[posicion];
+            positions[posicion] = tmp;
+        }
+        //Creamos os cadrados
+        for (int i = 0; i < numberOfSquares; i++) {
+            squares.add(new Square((positions[i]*SQUARE_SIDE),MAX_Y,Color.GRAY,
+                    this,0,0));            
+        }
+        //Subimos as lineas existentes
+        for (int i = MAX_Y; i > 0; i-=SQUARE_SIDE) {
+            for (int j = 0; j < MAX_X; j+=SQUARE_SIDE) {
+                
+                
+            }
+            
+        }
+        //Agregamos a nova linea
     }
 
     /**
