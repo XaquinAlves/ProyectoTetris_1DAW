@@ -31,24 +31,45 @@ import teistris.model.Game;
 public class MainWindow extends javax.swing.JFrame {
 
     /**
-     * Flag que indica se o modo de xogo e clasico(false) ouu extendido(true)
+     * Flag que indica se o set de pezas e clasico(false) ou extendido(true)
      */
     private boolean extendedPieces;
+    /**
+     * Indica o modo de xogo: 0 : normal 1 : caos 2 : caos extremo
+     */
+    private int gamemode;
 
     /**
-     * @return se esta no modo de xogo extendido
+     * @return se esta usando o set de pezas extendido
      */
     public boolean isExtendedPieces() {
         return extendedPieces;
     }
 
     /**
-     * Establece o modo de xogo
+     * Establece o set de pezas
      *
      * @param extendedGamemode false = clasico, true = extendido
      */
     public void setExtendedPieces(boolean extendedGamemode) {
         this.extendedPieces = extendedGamemode;
+    }
+
+    /**
+     *
+     * @return id do modo de xogo
+     */
+    public int getGamemode() {
+        return gamemode;
+    }
+
+    /**
+     * Establece o modo de xogo
+     *
+     * @param gamemode 0 = clasico, 1 = caos, 2 = caos extremo
+     */
+    public void setGamemode(int gamemode) {
+        this.gamemode = gamemode;
     }
 
     /**
@@ -132,8 +153,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     /**
-     * Actualiza na ventá o número de liñas que van feitas no xogo
-     * Se se fan 10 lineas, duplica a velocidade de caida das pezas
+     * Actualiza na ventá o número de liñas que van feitas no xogo Se se fan 10
+     * lineas, duplica a velocidade de caida das pezas
      *
      * @param numberOfLines Número de liñas feitas no xogo
      */
@@ -142,7 +163,10 @@ public class MainWindow extends javax.swing.JFrame {
         //Duplicamos velocidade de caida
         if (numberOfLines > 0 && numberOfLines % 10 == 0) {
             timer.setDelay(timer.getDelay() / 2);
-            if((numberOfLines/10) % 2 == 0){
+            //Modo caos: mete cadrados cada 20 filas
+            if (gamemode == 1 && (numberOfLines / 10) % 2 == 0) {
+                game.addLine();
+            }else if(gamemode == 2){//Modo caos extremo: mete cadrados cada 10 filas
                 game.addLine();
             }
         }
@@ -486,8 +510,9 @@ public class MainWindow extends javax.swing.JFrame {
          */
         JDialogGamemode dialogGamemode = new JDialogGamemode(this, rootPaneCheckingEnabled);
         dialogGamemode.setVisible(true);
-
-        extendedPieces = (dialogGamemode.isExtendedGamemode());
+            
+        extendedPieces = (dialogGamemode.isExtendedPieces());
+        gamemode = dialogGamemode.getGamemode();
         startGame();
     }//GEN-LAST:event_btnNewGameActionPerformed
 

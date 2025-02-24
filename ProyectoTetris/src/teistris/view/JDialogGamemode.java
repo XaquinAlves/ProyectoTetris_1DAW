@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package teistris.view;
 
 /**
@@ -11,14 +7,16 @@ package teistris.view;
  */
 public class JDialogGamemode extends javax.swing.JDialog {
 
-    //Flag que indica se o modo de xogo é extendido ou clasico
-    private boolean extendedGamemode;
+    //Flag que indica se o set de pezas é extendido ou clasico
+    private boolean extendedPieces;
+    //Indica modo de xogo
+    private int gamemode;
 
     /**
      * @return se esta no modo de xogo extendido
      */
-    public boolean isExtendedGamemode() {
-        return extendedGamemode;
+    public boolean isExtendedPieces() {
+        return extendedPieces;
     }
 
     /**
@@ -26,8 +24,25 @@ public class JDialogGamemode extends javax.swing.JDialog {
      *
      * @param extendedGamemode false = clasico, true = extendido
      */
-    public void setExtendedGamemode(boolean extendedGamemode) {
-        this.extendedGamemode = extendedGamemode;
+    public void setExtendedPieces(boolean extendedGamemode) {
+        this.extendedPieces = extendedGamemode;
+    }
+
+    /**
+     *
+     * @return id do modo de xogo
+     */
+    public int getGamemode() {
+        return gamemode;
+    }
+
+    /**
+     * Establece modo de xogo
+     *
+     * @param gamemode
+     */
+    public void setGamemode(int gamemode) {
+        this.gamemode = gamemode;
     }
 
     /**
@@ -48,29 +63,36 @@ public class JDialogGamemode extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabelMessage = new javax.swing.JLabel();
-        jButtonClasico = new javax.swing.JButton();
-        jButtonExtendido = new javax.swing.JButton();
+        jComboPiecesSet = new javax.swing.JComboBox<>();
+        jLabelPiecesSet = new javax.swing.JLabel();
+        jLabelGamemode = new javax.swing.JLabel();
+        jComboGamemode = new javax.swing.JComboBox<>();
+        jButtonAccept = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Modo de Xogo");
         setModal(true);
 
         jLabelMessage.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabelMessage.setText("Escolla un modo de xogo");
+        jLabelMessage.setText("Configure a sua partida:");
 
-        jButtonClasico.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButtonClasico.setText("Clasico");
-        jButtonClasico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClasicoActionPerformed(evt);
-            }
-        });
+        jComboPiecesSet.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jComboPiecesSet.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clásico", "Extendido" }));
 
-        jButtonExtendido.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButtonExtendido.setText("Extendido");
-        jButtonExtendido.addActionListener(new java.awt.event.ActionListener() {
+        jLabelPiecesSet.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelPiecesSet.setText("Escolla un set de pezas:");
+
+        jLabelGamemode.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelGamemode.setText("Escolla un modo de xogo:");
+
+        jComboGamemode.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jComboGamemode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Caos", "CaosExtremo" }));
+
+        jButtonAccept.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonAccept.setText("Comezar Partida");
+        jButtonAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExtendidoActionPerformed(evt);
+                jButtonAcceptActionPerformed(evt);
             }
         });
 
@@ -81,47 +103,50 @@ public class JDialogGamemode extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(15, 15, 15)
                         .addComponent(jLabelMessage))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jButtonClasico)
-                        .addGap(79, 79, 79)
-                        .addComponent(jButtonExtendido)))
-                .addGap(65, 65, 65))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPiecesSet)
+                            .addComponent(jLabelGamemode))
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboGamemode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboPiecesSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(jButtonAccept)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabelMessage)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonClasico)
-                    .addComponent(jButtonExtendido))
-                .addGap(20, 20, 20))
+                    .addComponent(jLabelPiecesSet)
+                    .addComponent(jComboPiecesSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboGamemode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelGamemode))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonAccept)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    /**
-     * Empeza a partida en modo clasico
-     *
-     * @param evt
-     */
-    private void jButtonClasicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClasicoActionPerformed
-        extendedGamemode = false;
+
+    private void jButtonAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcceptActionPerformed
+        // TODO add your handling code here:
+        extendedPieces = jComboPiecesSet.getSelectedIndex() != 0;
+        gamemode = jComboGamemode.getSelectedIndex();
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonClasicoActionPerformed
-    /**
-     * Empeza a partida en modo extendido
-     *
-     * @param evt
-     */
-    private void jButtonExtendidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtendidoActionPerformed
-        extendedGamemode = true;
-        this.setVisible(false);
-    }//GEN-LAST:event_jButtonExtendidoActionPerformed
+    }//GEN-LAST:event_jButtonAcceptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,8 +191,11 @@ public class JDialogGamemode extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonClasico;
-    private javax.swing.JButton jButtonExtendido;
+    private javax.swing.JButton jButtonAccept;
+    private javax.swing.JComboBox<String> jComboGamemode;
+    private javax.swing.JComboBox<String> jComboPiecesSet;
+    private javax.swing.JLabel jLabelGamemode;
     private javax.swing.JLabel jLabelMessage;
+    private javax.swing.JLabel jLabelPiecesSet;
     // End of variables declaration//GEN-END:variables
 }
