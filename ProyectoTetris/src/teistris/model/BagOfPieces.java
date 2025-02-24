@@ -10,6 +10,7 @@ import teistris.model.clasicpieces.LInvertedPiece;
 import java.util.Random;
 import java.util.Stack;
 import java.util.stream.IntStream;
+import teistris.model.extendedpieces.BigLInvertedPiece;
 import teistris.model.extendedpieces.BigLPiece;
 import teistris.model.extendedpieces.BridgePiece;
 import teistris.model.extendedpieces.CrossPiece;
@@ -67,7 +68,7 @@ public class BagOfPieces {
      * @return pila de pezas
      */
     public static Stack<Piece> fillBagExtended(Game game) {
-        int[] piecesIds = generateBag(10);
+        int[] piecesIds = generateBag(11);
         Stack<Piece> pieces = new Stack<>();
 
         for (int i = 0; i < piecesIds.length; i++) {
@@ -100,6 +101,9 @@ public class BagOfPieces {
                     pieces.add(new BigLPiece(game));
                     break;
                 case 9:
+                    pieces.add(new BigLInvertedPiece(game));
+                    break;
+                case 10:
                     pieces.add(new BridgePiece(game));
                     break;
             }
