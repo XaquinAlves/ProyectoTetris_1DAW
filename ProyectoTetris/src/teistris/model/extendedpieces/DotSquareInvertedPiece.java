@@ -1,11 +1,11 @@
 package teistris.model.extendedpieces;
 
+import java.awt.Color;
 import teistris.model.Game;
 import teistris.model.Piece;
-
+import teistris.model.Square;
 
 public class DotSquareInvertedPiece extends Piece {
-
 
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
@@ -15,14 +15,17 @@ public class DotSquareInvertedPiece extends Piece {
     public DotSquareInvertedPiece(Game game) {
         this.game = game;
 
-        /*       squares = new Square[]{
-        new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.GREEN, game),
-        new Square(Game.MAX_X / 2, 0, Color.GREEN, game),
-        new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
-        Color.GREEN, game),
-        new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.GREEN, game),
-        new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, 0, Color.GREEN, game)
-        };*/
+        squares = new Square[]{
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.GREEN, game,
+            Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2),
+            new Square(Game.MAX_X / 2, 0, Color.GREEN, game, Game.SQUARE_SIDE * 2,
+            Game.SQUARE_SIDE * 2),
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
+            Color.GREEN, game, Game.SQUARE_SIDE, Game.SQUARE_SIDE * 3),
+            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.GREEN, game,
+            Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
+            new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, 0, Color.GREEN, game, Game.SQUARE_SIDE * 3, Game.SQUARE_SIDE * 2)
+        };
         position = 0;
 
     }
@@ -34,7 +37,7 @@ public class DotSquareInvertedPiece extends Piece {
      */
     @Override
     public boolean rotate() {
-        /* return switch (position) {
+         return switch (position) {
         case 0 -> {
         if (game.isValidPosition(squares[4].getX() - 2 * Game.SQUARE_SIDE,
         squares[4].getY() - Game.SQUARE_SIDE)) {
@@ -83,7 +86,7 @@ public class DotSquareInvertedPiece extends Piece {
         }
         yield false;
         }
-        };*/
-        return false;
+        };
+        
     }
 }

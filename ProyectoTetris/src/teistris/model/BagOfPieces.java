@@ -14,6 +14,7 @@ import teistris.model.extendedpieces.BigLInvertedPiece;
 import teistris.model.extendedpieces.BigLPiece;
 import teistris.model.extendedpieces.BridgePiece;
 import teistris.model.extendedpieces.CrossPiece;
+import teistris.model.extendedpieces.DotSquareInvertedPiece;
 //TODO: fillBagExtended
 
 /**
@@ -68,7 +69,7 @@ public class BagOfPieces {
      * @return pila de pezas
      */
     public static Stack<Piece> fillBagExtended(Game game) {
-        int[] piecesIds = generateBag(11);
+        int[] piecesIds = generateBag(12);
         Stack<Piece> pieces = new Stack<>();
 
         for (int i = 0; i < piecesIds.length; i++) {
@@ -105,6 +106,9 @@ public class BagOfPieces {
                     break;
                 case 10:
                     pieces.add(new BridgePiece(game));
+                    break;
+                case 11:
+                    pieces.add(new DotSquareInvertedPiece(game));
                     break;
             }
         }
