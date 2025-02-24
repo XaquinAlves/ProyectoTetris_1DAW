@@ -435,7 +435,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(pnlNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelSeguinte)
                             .addComponent(jLabelGardada))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(91, 91, 91)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
