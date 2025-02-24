@@ -133,13 +133,18 @@ public class MainWindow extends javax.swing.JFrame {
 
     /**
      * Actualiza na ventá o número de liñas que van feitas no xogo
+     * Se se fan 10 lineas, duplica a velocidade de caida das pezas
      *
      * @param numberOfLines Número de liñas feitas no xogo
      */
     public void showNumberOfLines(int numberOfLines) {
         lblNumberOfLines.setText(String.valueOf(numberOfLines));
+        //Duplicamos velocidade de caida
         if (numberOfLines > 0 && numberOfLines % 10 == 0) {
             timer.setDelay(timer.getDelay() / 2);
+            if((numberOfLines/10) % 2 == 0){
+                game.addLine();
+            }
         }
     }
 

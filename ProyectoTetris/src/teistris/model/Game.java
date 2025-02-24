@@ -370,18 +370,32 @@ public class Game {
         }
         //Creamos os cadrados
         for (int i = 0; i < numberOfSquares; i++) {
-            squares.add(new Square((positions[i]*SQUARE_SIDE),MAX_Y,Color.GRAY,
-                    this,0,0));            
+            squares.add(new Square((positions[i] * SQUARE_SIDE), MAX_Y - SQUARE_SIDE, Color.GRAY,
+                    this, 0, 0));
         }
         //Subimos as lineas existentes
-        for (int i = MAX_Y; i > 0; i-=SQUARE_SIDE) {
-            for (int j = 0; j < MAX_X; j+=SQUARE_SIDE) {
-                
-                
+        for (int i = SQUARE_SIDE; i < MAX_Y; i += SQUARE_SIDE) {
+            for (int j = 0; j < MAX_X; j += SQUARE_SIDE) {
+                if (groundSquares.containsKey(j + "," + i)) {
+
+                    Square tempSq = groundSquares.get(j + "," + i);
+                    Square sq = new Square(j, i - SQUARE_SIDE, tempSq.getFillColor(), this, tempSq.getNextX(), tempSq.getNextY());
+
+                    groundSquares.put(j + "," + (i - SQUARE_SIDE), sq);
+                    sq.repaintOnMainWindow();
+                    mainWindow.drawSquare(sq.getLblSquare());
+
+                    mainWindow.deleteSquare(tempSq.getLblSquare());
+                    groundSquares.remove(j + "," + i);
+                }
             }
-            
         }
         //Agregamos a nova linea
+        for (Square sq: squares){
+            groundSquares.put(sq.getCoordinates(), sq);
+            sq.repaintOnMainWindow();
+            mainWindow.drawSquare(sq.getLblSquare());
+        }
     }
 
     /**
