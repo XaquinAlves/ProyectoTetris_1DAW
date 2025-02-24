@@ -247,7 +247,7 @@ public class Game {
     private void createNewPiece() {
         //Enchemos a bolsa se esta vacía 
         if (bagPieces.isEmpty()) {
-            if (mainWindow.isExtendedGamemode()) {
+            if (mainWindow.isExtendedPieces()) {
                 bagPieces = BagOfPieces.fillBagExtended(this);
             } else {
                 bagPieces = BagOfPieces.fillBagClassic(this);

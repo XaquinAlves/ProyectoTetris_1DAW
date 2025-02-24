@@ -33,13 +33,13 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Flag que indica se o modo de xogo e clasico(false) ouu extendido(true)
      */
-    private boolean extendedGamemode;
+    private boolean extendedPieces;
 
     /**
      * @return se esta no modo de xogo extendido
      */
-    public boolean isExtendedGamemode() {
-        return extendedGamemode;
+    public boolean isExtendedPieces() {
+        return extendedPieces;
     }
 
     /**
@@ -47,8 +47,8 @@ public class MainWindow extends javax.swing.JFrame {
      *
      * @param extendedGamemode false = clasico, true = extendido
      */
-    public void setExtendedGamemode(boolean extendedGamemode) {
-        this.extendedGamemode = extendedGamemode;
+    public void setExtendedPieces(boolean extendedGamemode) {
+        this.extendedPieces = extendedGamemode;
     }
 
     /**
@@ -487,7 +487,7 @@ public class MainWindow extends javax.swing.JFrame {
         JDialogGamemode dialogGamemode = new JDialogGamemode(this, rootPaneCheckingEnabled);
         dialogGamemode.setVisible(true);
 
-        extendedGamemode = (dialogGamemode.isExtendedGamemode());
+        extendedPieces = (dialogGamemode.isExtendedGamemode());
         startGame();
     }//GEN-LAST:event_btnNewGameActionPerformed
 
