@@ -177,12 +177,12 @@ public class Game {
             }
         }
     }
-    //TODO: a veces, gardar cando a peza esta cerca do chan, peta(creo q esta solved)
+    //TODO: a veces, gardar cando a peza esta cerca do chan, peta
     /**
      * Garda unha peza, para poder usala mais adiante
      */
     public void savePiece() {
-        if (!paused && currentPiece.moveDown()) {
+        if (!paused && currentPiece.rotate()) {
             
             do {
                 currentPiece.rotate();
