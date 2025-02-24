@@ -177,7 +177,7 @@ public class Game {
             }
         }
     }
-    //TODO: a veces, gardar cando a peza esta cerca do chan, peta
+    //TODO: mellorar gardar
     /**
      * Garda unha peza, para poder usala mais adiante
      */
