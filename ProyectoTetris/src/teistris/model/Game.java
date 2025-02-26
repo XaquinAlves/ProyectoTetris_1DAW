@@ -205,7 +205,7 @@ public class Game {
                 savedPiece.resetPiece();
 
                 createNewPiece();
-                //Si hay peza gardada, gardamos a actual e pomos a gardada comon actual  
+                //Si hay peza gardada, gardamos a actual e pomos a gardada como actual  
             } else {
 
                 Piece temp = currentPiece;
