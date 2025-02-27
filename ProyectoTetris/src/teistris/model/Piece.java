@@ -135,12 +135,12 @@ public abstract class Piece {
 
         return true;
     }
-    
-    public void resetPiece(){
-        for(Square sq: squares){
+
+    public void resetPiece() {
+        for (Square sq : squares) {
             sq.resetPosition();
         }
-        
+
         position = 0;
     }
 

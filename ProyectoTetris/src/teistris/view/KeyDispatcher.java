@@ -41,13 +41,17 @@ public class KeyDispatcher implements KeyEventDispatcher {
         if (game != null && (e.getID() == KeyEvent.KEY_PRESSED)) {
             if (e.getKeyChar() == 'w' || e.getKeyCode() == KeyEvent.VK_UP) {
                 game.rotatePiece();
-            } else if (e.getKeyChar() == 'a' || e.getKeyCode() == KeyEvent.VK_LEFT) {
+            }
+            else if (e.getKeyChar() == 'a' || e.getKeyCode() == KeyEvent.VK_LEFT) {
                 game.movePieceLeft();
-            } else if (e.getKeyChar() == 'd' || e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            }
+            else if (e.getKeyChar() == 'd' || e.getKeyCode() == KeyEvent.VK_RIGHT) {
                 game.movePieceRight();
-            } else if (e.getKeyChar() == 's' || e.getKeyCode() == KeyEvent.VK_DOWN) {
+            }
+            else if (e.getKeyChar() == 's' || e.getKeyCode() == KeyEvent.VK_DOWN) {
                 game.movePieceDown();
-            }else if(e.getKeyChar() == 'c' || e.getKeyChar() == 'g'){
+            }
+            else if (e.getKeyChar() == 'c' || e.getKeyChar() == 'g') {
                 game.savePiece();
             }
 

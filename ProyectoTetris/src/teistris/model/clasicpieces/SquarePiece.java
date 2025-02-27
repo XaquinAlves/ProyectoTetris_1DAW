@@ -14,22 +14,21 @@ public class SquarePiece extends Piece {
 
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
+     *
+     * @param game referencia a partida actual
      */
     public SquarePiece(Game game) {
         this.game = game;
 
         squares = new Square[]{
             new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game,
-                Game.SQUARE_SIDE , Game.SQUARE_SIDE * 2),
-            
+                       Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2),
             new Square(Game.MAX_X / 2, 0, Color.BLUE, game, Game.SQUARE_SIDE * 2,
-                Game.SQUARE_SIDE * 2),
-            
+                       Game.SQUARE_SIDE * 2),
             new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
-                Color.BLUE, game, Game.SQUARE_SIDE , Game.SQUARE_SIDE * 3),
-            
+                       Color.BLUE, game, Game.SQUARE_SIDE, Game.SQUARE_SIDE * 3),
             new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game,
-                Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3)
+                       Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3)
         };
     }
 

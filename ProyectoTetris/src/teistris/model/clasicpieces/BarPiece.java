@@ -22,16 +22,13 @@ public class BarPiece extends Piece {
 
         squares = new Square[]{
             new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.YELLOW, game,
-                    Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE),
-            
+                       Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE),
             new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
-                    Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 2),
-            
+                       Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 2),
             new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2,
-                    Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
-            
+                       Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
             new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE * 3,
-                    Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 4)
+                       Color.YELLOW, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 4)
         };
 
     }
@@ -61,7 +58,8 @@ public class BarPiece extends Piece {
                 position = 1;
                 return true;
             }
-        } else {
+        }
+        else {
             if (game.isValidPosition(squares[0].getX() + Game.SQUARE_SIDE, squares[0].getY() - Game.SQUARE_SIDE)
                     && game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE, squares[2].getY() + Game.SQUARE_SIDE)
                     && game.isValidPosition(squares[3].getX() - Game.SQUARE_SIDE * 2, squares[3].getY() + Game.SQUARE_SIDE * 2)) {

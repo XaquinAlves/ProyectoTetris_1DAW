@@ -206,7 +206,8 @@ public class Game {
 
                 createNewPiece();
                 //Si hay peza gardada, gardamos a actual e pomos a gardada como actual  
-            } else {
+            }
+            else {
 
                 Piece temp = currentPiece;
                 currentPiece = savedPiece;
@@ -249,7 +250,8 @@ public class Game {
         if (bagPieces.isEmpty()) {
             if (mainWindow.isExtendedPieces()) {
                 bagPieces = BagOfPieces.fillBagExtended(this);
-            } else {
+            }
+            else {
                 bagPieces = BagOfPieces.fillBagClassic(this);
             }
         }
@@ -371,7 +373,7 @@ public class Game {
         //Creamos os cadrados
         for (int i = 0; i < numberOfSquares; i++) {
             squares.add(new Square((positions[i] * SQUARE_SIDE), MAX_Y - SQUARE_SIDE, Color.GRAY,
-                    this, 0, 0));
+                                   this, 0, 0));
         }
         //Subimos as lineas existentes
         for (int i = SQUARE_SIDE; i < MAX_Y; i += SQUARE_SIDE) {
@@ -391,7 +393,7 @@ public class Game {
             }
         }
         //Agregamos a nova linea
-        for (Square sq: squares){
+        for (Square sq : squares) {
             groundSquares.put(sq.getCoordinates(), sq);
             sq.repaintOnMainWindow();
             mainWindow.drawSquare(sq.getLblSquare());

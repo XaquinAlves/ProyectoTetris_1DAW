@@ -6,7 +6,8 @@ import teistris.model.Piece;
 import teistris.model.Square;
 
 /**
- *Clase para a peza en T
+ * Clase para a peza en T
+ *
  * @author Mateo
  */
 public class TPiece extends Piece {
@@ -20,23 +21,24 @@ public class TPiece extends Piece {
         this.game = game;
 
         squares = new Square[]{
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.MAGENTA,
-                    game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE*2),
-            
-            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, 
-                    Color.MAGENTA, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE*3),
-            
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0,
+                       Color.MAGENTA, game, Game.SQUARE_SIDE * 2,
+                       Game.SQUARE_SIDE * 2),
+            new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
+                       Color.MAGENTA, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
             new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE * 2,
-                    Color.MAGENTA, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE*4),
-            
+                       Color.MAGENTA, game, Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 4),
             new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.MAGENTA, game,
-                    Game.SQUARE_SIDE * 3, Game.SQUARE_SIDE * 3)
+                       Game.SQUARE_SIDE * 3, Game.SQUARE_SIDE * 3)
         };
 
     }
+
     /**
-     * Método para rotar a peza. Cambia a posición dos cadrados que a compoñen segundo a posición actual
-     * @return 
+     * Método para rotar a peza. Cambia a posición dos cadrados que a compoñen
+     * segundo a posición actual
+     *
+     * @return
      */
     @Override
     public boolean rotate() {

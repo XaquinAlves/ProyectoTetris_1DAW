@@ -17,15 +17,15 @@ public class FInvertedPiece extends Piece {
 
         squares = new Square[]{
             new Square(Game.MAX_X / 2, 0, Color.ORANGE, game,
-            Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 2),
+                       Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 2),
             new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.ORANGE, game,
-            Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
+                       Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
             new Square(Game.MAX_X / 2, 2 * Game.SQUARE_SIDE, Color.ORANGE, game,
-            Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 4),
+                       Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 4),
             new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 2 * Game.SQUARE_SIDE,
-            Color.ORANGE, game, Game.SQUARE_SIDE, Game.SQUARE_SIDE * 4),
+                       Color.ORANGE, game, Game.SQUARE_SIDE, Game.SQUARE_SIDE * 4),
             new Square(Game.MAX_X / 2 + Game.SQUARE_SIDE, Game.SQUARE_SIDE,
-            Color.ORANGE, game, Game.SQUARE_SIDE * 3, Game.SQUARE_SIDE * 3)
+                       Color.ORANGE, game, Game.SQUARE_SIDE * 3, Game.SQUARE_SIDE * 3)
         };
         position = 0;
 

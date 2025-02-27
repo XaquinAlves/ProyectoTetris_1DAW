@@ -6,8 +6,9 @@ import teistris.model.Piece;
 import teistris.model.Square;
 
 /**
+ * Representa a peza L Invertida
  *
- * @author Xaquin Alves 
+ * @author Xaquin Alves
  */
 public class LInvertedPiece extends Piece {
 
@@ -15,17 +16,14 @@ public class LInvertedPiece extends Piece {
         this.game = game;
 
         squares = new Square[]{
-            new Square(Game.MAX_X / 2, 0, Color.ORANGE, game, 
-                    Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE*2),
-            
-            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.ORANGE, game, 
-                    Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
-            
+            new Square(Game.MAX_X / 2, 0, Color.ORANGE, game,
+                       Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 2),
+            new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.ORANGE, game,
+                       Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 3),
             new Square(Game.MAX_X / 2, 2 * Game.SQUARE_SIDE, Color.ORANGE, game,
-                Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 4),
-            
+                       Game.SQUARE_SIDE * 2, Game.SQUARE_SIDE * 4),
             new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 2 * Game.SQUARE_SIDE,
-                    Color.ORANGE, game, Game.SQUARE_SIDE, Game.SQUARE_SIDE * 4 )
+                       Color.ORANGE, game, Game.SQUARE_SIDE, Game.SQUARE_SIDE * 4)
         };
 
         position = 0;
@@ -43,7 +41,7 @@ public class LInvertedPiece extends Piece {
             case 0:
                 if (game.isValidPosition(squares[0].getX() - Game.SQUARE_SIDE, squares[0].getY() + Game.SQUARE_SIDE)) {
                     if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE, squares[2].getY() - Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX()+2*Game.SQUARE_SIDE, squares[3].getY() )) {
+                        if (game.isValidPosition(squares[3].getX() + 2 * Game.SQUARE_SIDE, squares[3].getY())) {
 
                             squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
                             squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
@@ -63,7 +61,7 @@ public class LInvertedPiece extends Piece {
             case 1:
                 if (game.isValidPosition(squares[0].getX() + Game.SQUARE_SIDE, squares[0].getY() + Game.SQUARE_SIDE)) {
                     if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE, squares[2].getY() - Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX() , squares[3].getY()- 2 * Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() - 2 * Game.SQUARE_SIDE)) {
 
                             squares[0].setX(squares[0].getX() + Game.SQUARE_SIDE);
                             squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
@@ -83,7 +81,7 @@ public class LInvertedPiece extends Piece {
             case 2:
                 if (game.isValidPosition(squares[0].getX() + Game.SQUARE_SIDE, squares[0].getY() - Game.SQUARE_SIDE)) {
                     if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE, squares[2].getY() + Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX()- 2 * Game.SQUARE_SIDE, squares[3].getY() )) {
+                        if (game.isValidPosition(squares[3].getX() - 2 * Game.SQUARE_SIDE, squares[3].getY())) {
 
                             squares[0].setX(squares[0].getX() + Game.SQUARE_SIDE);
                             squares[0].setY(squares[0].getY() - Game.SQUARE_SIDE);
@@ -103,7 +101,7 @@ public class LInvertedPiece extends Piece {
             default:
                 if (game.isValidPosition(squares[0].getX() - Game.SQUARE_SIDE, squares[0].getY() - Game.SQUARE_SIDE)) {
                     if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE, squares[2].getY() + Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX() , squares[3].getY()+ 2 * Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() + 2 * Game.SQUARE_SIDE)) {
 
                             squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
                             squares[0].setY(squares[0].getY() - Game.SQUARE_SIDE);
