@@ -163,13 +163,6 @@ public class MainWindow extends javax.swing.JFrame {
         //Duplicamos velocidade de caida
         if (numberOfLines > 0 && numberOfLines % 10 == 0) {
             timer.setDelay(timer.getDelay() / 2);
-            //Modo caos: mete cadrados cada 20 filas
-            if (gamemode == 1 && (numberOfLines / 10) % 2 == 0) {
-                game.addLine();
-            }
-            else if (gamemode == 2) {//Modo caos extremo: mete cadrados cada 10 filas
-                game.addLine();
-            }
         }
     }
 

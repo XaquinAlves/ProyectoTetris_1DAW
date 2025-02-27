@@ -313,6 +313,13 @@ public class Game {
             if (!isEmpty) {
                 deleteLine(i);
                 numberOfLines += 1;
+                //Modo caos: mete cadrados cada 20 filas
+                if (mainWindow.getGamemode() == 1 && (numberOfLines / 10) % 2 == 0) {
+                    addLine();
+                }//Modo caos extremo: mete cadrados cada 10 filas
+                else if (mainWindow.getGamemode() == 2 && numberOfLines % 10 == 0) {
+                    addLine();
+                }
                 mainWindow.showNumberOfLines(numberOfLines);
             }
 
