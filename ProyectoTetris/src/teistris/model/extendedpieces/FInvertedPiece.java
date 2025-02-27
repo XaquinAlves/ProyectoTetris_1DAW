@@ -40,10 +40,14 @@ public class FInvertedPiece extends Piece {
     public boolean rotate() {
         return switch (position) {
             case 0 -> {
-                if (game.isValidPosition(squares[0].getX() - Game.SQUARE_SIDE, squares[0].getY() + Game.SQUARE_SIDE)) {
-                    if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE, squares[2].getY() - Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX() + 2 * Game.SQUARE_SIDE, squares[3].getY())) {
-                            if (game.isValidPosition(squares[4].getX() - Game.SQUARE_SIDE, squares[4].getY() - Game.SQUARE_SIDE)) {
+                if (game.isValidPosition(squares[0].getX() - Game.SQUARE_SIDE, squares[0].
+                                         getY() + Game.SQUARE_SIDE)) {
+                    if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE,
+                                             squares[2].getY() - Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX() + 2 * Game.SQUARE_SIDE,
+                                                 squares[3].getY())) {
+                            if (game.isValidPosition(squares[4].getX() - Game.SQUARE_SIDE,
+                                                     squares[4].getY() - Game.SQUARE_SIDE)) {
                                 squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
                                 squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
 
@@ -65,10 +69,14 @@ public class FInvertedPiece extends Piece {
                 yield false;
             }
             case 1 -> {
-                if (game.isValidPosition(squares[0].getX() + Game.SQUARE_SIDE, squares[0].getY() + Game.SQUARE_SIDE)) {
-                    if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE, squares[2].getY() - Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() - 2 * Game.SQUARE_SIDE)) {
-                            if (game.isValidPosition(squares[4].getX() - Game.SQUARE_SIDE, squares[4].getY() + Game.SQUARE_SIDE)) {
+                if (game.isValidPosition(squares[0].getX() + Game.SQUARE_SIDE, squares[0].
+                                         getY() + Game.SQUARE_SIDE)) {
+                    if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE,
+                                             squares[2].getY() - Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() -
+                                                 2 * Game.SQUARE_SIDE)) {
+                            if (game.isValidPosition(squares[4].getX() - Game.SQUARE_SIDE,
+                                                     squares[4].getY() + Game.SQUARE_SIDE)) {
                                 squares[0].setX(squares[0].getX() + Game.SQUARE_SIDE);
                                 squares[0].setY(squares[0].getY() + Game.SQUARE_SIDE);
 
@@ -90,10 +98,14 @@ public class FInvertedPiece extends Piece {
                 yield false;
             }
             case 2 -> {
-                if (game.isValidPosition(squares[0].getX() + Game.SQUARE_SIDE, squares[0].getY() - Game.SQUARE_SIDE)) {
-                    if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE, squares[2].getY() + Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX() - 2 * Game.SQUARE_SIDE, squares[3].getY())) {
-                            if (game.isValidPosition(squares[4].getX() + Game.SQUARE_SIDE, squares[4].getY() + Game.SQUARE_SIDE)) {
+                if (game.isValidPosition(squares[0].getX() + Game.SQUARE_SIDE, squares[0].
+                                         getY() - Game.SQUARE_SIDE)) {
+                    if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE,
+                                             squares[2].getY() + Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX() - 2 * Game.SQUARE_SIDE,
+                                                 squares[3].getY())) {
+                            if (game.isValidPosition(squares[4].getX() + Game.SQUARE_SIDE,
+                                                     squares[4].getY() + Game.SQUARE_SIDE)) {
                                 squares[0].setX(squares[0].getX() + Game.SQUARE_SIDE);
                                 squares[0].setY(squares[0].getY() - Game.SQUARE_SIDE);
 
@@ -115,10 +127,14 @@ public class FInvertedPiece extends Piece {
                 yield false;
             }
             default -> {
-                if (game.isValidPosition(squares[0].getX() - Game.SQUARE_SIDE, squares[0].getY() - Game.SQUARE_SIDE)) {
-                    if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE, squares[2].getY() + Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() + 2 * Game.SQUARE_SIDE)) {
-                            if (game.isValidPosition(squares[4].getX() + Game.SQUARE_SIDE, squares[4].getY() - Game.SQUARE_SIDE)) {
+                if (game.isValidPosition(squares[0].getX() - Game.SQUARE_SIDE, squares[0].
+                                         getY() - Game.SQUARE_SIDE)) {
+                    if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE,
+                                             squares[2].getY() + Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() +
+                                                 2 * Game.SQUARE_SIDE)) {
+                            if (game.isValidPosition(squares[4].getX() + Game.SQUARE_SIDE,
+                                                     squares[4].getY() - Game.SQUARE_SIDE)) {
                                 squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
                                 squares[0].setY(squares[0].getY() - Game.SQUARE_SIDE);
 

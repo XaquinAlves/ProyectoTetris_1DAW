@@ -41,10 +41,15 @@ public class BridgePiece extends Piece {
     public boolean rotate() {
         return switch (position) {
             case 0 -> {
-                if (game.isValidPosition(squares[1].getX() - Game.SQUARE_SIDE, squares[1].getY() + Game.SQUARE_SIDE)) {
-                    if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE, squares[2].getY() - Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX() - 2 * Game.SQUARE_SIDE, squares[3].getY())) {
-                            if (game.isValidPosition(squares[4].getX(), squares[4].getY() - 2 * Game.SQUARE_SIDE)) {
+                if (game.isValidPosition(squares[1].getX() - Game.SQUARE_SIDE, squares[1].
+                                         getY() + Game.SQUARE_SIDE)) {
+                    if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE,
+                                             squares[2].getY() - Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX() - 2 * Game.SQUARE_SIDE,
+                                                 squares[3].getY())) {
+                            if (game.isValidPosition(squares[4].getX(),
+                                                     squares[4].getY() - 2 *
+                                                     Game.SQUARE_SIDE)) {
 
                                 squares[1].setX(squares[1].getX() - Game.SQUARE_SIDE);
                                 squares[1].setY(squares[1].getY() + Game.SQUARE_SIDE);
@@ -66,10 +71,14 @@ public class BridgePiece extends Piece {
                 yield false;
             }
             case 1 -> {
-                if (game.isValidPosition(squares[1].getX() + Game.SQUARE_SIDE, squares[1].getY() + Game.SQUARE_SIDE)) {
-                    if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE, squares[2].getY() - Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() + 2 * Game.SQUARE_SIDE)) {
-                            if (game.isValidPosition(squares[4].getX() - 2 * Game.SQUARE_SIDE, squares[4].getY())) {
+                if (game.isValidPosition(squares[1].getX() + Game.SQUARE_SIDE, squares[1].
+                                         getY() + Game.SQUARE_SIDE)) {
+                    if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE,
+                                             squares[2].getY() - Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() +
+                                                 2 * Game.SQUARE_SIDE)) {
+                            if (game.isValidPosition(squares[4].getX() - 2 *
+                                    Game.SQUARE_SIDE, squares[4].getY())) {
 
                                 squares[1].setX(squares[1].getX() + Game.SQUARE_SIDE);
                                 squares[1].setY(squares[1].getY() + Game.SQUARE_SIDE);
@@ -90,10 +99,15 @@ public class BridgePiece extends Piece {
                 yield false;
             }
             case 2 -> {
-                if (game.isValidPosition(squares[1].getX() + Game.SQUARE_SIDE, squares[1].getY() - Game.SQUARE_SIDE)) {
-                    if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE, squares[2].getY() + Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX() + 2 * Game.SQUARE_SIDE, squares[3].getY())) {
-                            if (game.isValidPosition(squares[4].getX(), squares[4].getY() + 2 * Game.SQUARE_SIDE)) {
+                if (game.isValidPosition(squares[1].getX() + Game.SQUARE_SIDE, squares[1].
+                                         getY() - Game.SQUARE_SIDE)) {
+                    if (game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE,
+                                             squares[2].getY() + Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX() + 2 * Game.SQUARE_SIDE,
+                                                 squares[3].getY())) {
+                            if (game.isValidPosition(squares[4].getX(),
+                                                     squares[4].getY() + 2 *
+                                                     Game.SQUARE_SIDE)) {
 
                                 squares[1].setX(squares[1].getX() + Game.SQUARE_SIDE);
                                 squares[1].setY(squares[1].getY() - Game.SQUARE_SIDE);
@@ -115,10 +129,14 @@ public class BridgePiece extends Piece {
                 yield false;
             }
             default -> {
-                if (game.isValidPosition(squares[1].getX() - Game.SQUARE_SIDE, squares[1].getY() - Game.SQUARE_SIDE)) {
-                    if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE, squares[2].getY() + Game.SQUARE_SIDE)) {
-                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() - 2 * Game.SQUARE_SIDE)) {
-                            if (game.isValidPosition(squares[4].getX() + 2 * Game.SQUARE_SIDE, squares[4].getY())) {
+                if (game.isValidPosition(squares[1].getX() - Game.SQUARE_SIDE, squares[1].
+                                         getY() - Game.SQUARE_SIDE)) {
+                    if (game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE,
+                                             squares[2].getY() + Game.SQUARE_SIDE)) {
+                        if (game.isValidPosition(squares[3].getX(), squares[3].getY() -
+                                                 2 * Game.SQUARE_SIDE)) {
+                            if (game.isValidPosition(squares[4].getX() + 2 *
+                                    Game.SQUARE_SIDE, squares[4].getY())) {
                                 squares[1].setX(squares[1].getX() - Game.SQUARE_SIDE);
                                 squares[1].setY(squares[1].getY() - Game.SQUARE_SIDE);
 

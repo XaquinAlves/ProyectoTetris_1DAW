@@ -27,8 +27,7 @@ import teistris.model.extendedpieces.FPiece;
 public class BagOfPieces {
 
     /**
-     * Obten unha pila de pezas aleatorias sen repeticion, coas pezas do tetris
-     * clásico
+     * Obten unha pila de pezas aleatorias sen repeticion, coas pezas do tetris clásico
      *
      * @param game referencia a partida actual
      * @return pila de pezas
@@ -60,8 +59,8 @@ public class BagOfPieces {
     }
 
     /**
-     * Obten unha pila de pezas aleatorias sen repeticion, con pezas extra
-     * respecto ao tetris orixinal
+     * Obten unha pila de pezas aleatorias sen repeticion, con pezas extra respecto ao
+     * tetris orixinal
      *
      * @param game referencia a partida actual
      * @return pila de pezas

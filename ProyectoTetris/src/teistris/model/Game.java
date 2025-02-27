@@ -167,9 +167,8 @@ public class Game {
     }
 
     /**
-     * Move a peza actual abaixo, se o xogo non está pausado Se a peza choca con
-     * algo e xa non pode baixar, pasa a formar parte do chan e créase unha nova
-     * peza
+     * Move a peza actual abaixo, se o xogo non está pausado Se a peza choca con algo e xa
+     * non pode baixar, pasa a formar parte do chan e créase unha nova peza
      */
     public void movePieceDown() {
         if ((!paused) && (!currentPiece.moveDown())) {
@@ -238,12 +237,13 @@ public class Game {
      * @return true se esa posición é válida, se non false
      */
     public boolean isValidPosition(int x, int y) {
-        return !((x == MAX_X) || (x < 0) || (y == MAX_Y) || groundSquares.containsKey(String.valueOf(x) + "," + String.valueOf(y)));
+        return !((x == MAX_X) || (x < 0) || (y == MAX_Y) || groundSquares.containsKey(
+                 String.valueOf(x) + "," + String.valueOf(y)));
     }
 
     /**
-     * Saca unha peza da bolsa e a establece como peza actual do xogo, se a
-     * bolsa esta vacia, xera unha nova
+     * Saca unha peza da bolsa e a establece como peza actual do xogo, se a bolsa esta
+     * vacia, xera unha nova
      */
     private void createNewPiece() {
         //Enchemos a bolsa se esta vacía 
@@ -297,8 +297,8 @@ public class Game {
     }
 
     /**
-     * Se os cadrados que están forman unha liña completa, bórranse eses
-     * cadrados do chan e súmase unha nova liña no número de liñas realizadas
+     * Se os cadrados que están forman unha liña completa, bórranse eses cadrados do chan
+     * e súmase unha nova liña no número de liñas realizadas
      */
     private void deleteCompletedLines() {
         boolean isEmpty;
@@ -320,9 +320,8 @@ public class Game {
     }
 
     /**
-     * Borra todos os cadrados que se atopan na liña indicada pola coordenada y,
-     * e baixa todos os cadrados que estean situados por enriba unha posición
-     * cara abaixo
+     * Borra todos os cadrados que se atopan na liña indicada pola coordenada y, e baixa
+     * todos os cadrados que estean situados por enriba unha posición cara abaixo
      *
      * @param y Coordenada y da liña a borrar
      */
@@ -338,7 +337,9 @@ public class Game {
                 if (groundSquares.containsKey(j + "," + i)) {
 
                     Square tempSq = groundSquares.get(j + "," + i);
-                    Square sq = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this, tempSq.getNextX(), tempSq.getNextY());
+                    Square sq
+                            = new Square(j, i + SQUARE_SIDE, tempSq.getFillColor(), this,
+                                         tempSq.getNextX(), tempSq.getNextY());
 
                     groundSquares.put(j + "," + (i + SQUARE_SIDE), sq);
                     sq.repaintOnMainWindow();
@@ -352,8 +353,8 @@ public class Game {
     }
 
     /**
-     * Engade unha linea con cadrados aleatorios no chan, empurrando as demais
-     * hacia arriba
+     * Engade unha linea con cadrados aleatorios no chan, empurrando as demais hacia
+     * arriba
      */
     public void addLine() {
         //Cantidade de cadrados que apareceran, de 3 a 11
@@ -372,7 +373,8 @@ public class Game {
         }
         //Creamos os cadrados
         for (int i = 0; i < numberOfSquares; i++) {
-            squares.add(new Square((positions[i] * SQUARE_SIDE), MAX_Y - SQUARE_SIDE, Color.GRAY,
+            squares.add(new Square((positions[i] * SQUARE_SIDE), MAX_Y - SQUARE_SIDE,
+                                   Color.GRAY,
                                    this, 0, 0));
         }
         //Subimos as lineas existentes
@@ -381,7 +383,9 @@ public class Game {
                 if (groundSquares.containsKey(j + "," + i)) {
 
                     Square tempSq = groundSquares.get(j + "," + i);
-                    Square sq = new Square(j, i - SQUARE_SIDE, tempSq.getFillColor(), this, tempSq.getNextX(), tempSq.getNextY());
+                    Square sq
+                            = new Square(j, i - SQUARE_SIDE, tempSq.getFillColor(), this,
+                                         tempSq.getNextX(), tempSq.getNextY());
 
                     groundSquares.put(j + "," + (i - SQUARE_SIDE), sq);
                     sq.repaintOnMainWindow();

@@ -34,8 +34,8 @@ public class BarPiece extends Piece {
     }
 
     /**
-     * Método para rotar a peza. Cambia a posición dos cadrados que a compoñen
-     * segundo a posición actual
+     * Método para rotar a peza. Cambia a posición dos cadrados que a compoñen segundo a
+     * posición actual
      *
      * @return
      */
@@ -43,9 +43,12 @@ public class BarPiece extends Piece {
     public boolean rotate() {
 
         if (position == 0) {
-            if (game.isValidPosition(squares[0].getX() - Game.SQUARE_SIDE, squares[0].getY() + Game.SQUARE_SIDE)
-                    && game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE, squares[2].getY() - Game.SQUARE_SIDE)
-                    && game.isValidPosition(squares[3].getX() + Game.SQUARE_SIDE * 2, squares[3].getY() - Game.SQUARE_SIDE * 2)) {
+            if (game.isValidPosition(squares[0].getX() - Game.SQUARE_SIDE, squares[0].
+                                     getY() + Game.SQUARE_SIDE) &&
+                     game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE,
+                                          squares[2].getY() - Game.SQUARE_SIDE) &&
+                     game.isValidPosition(squares[3].getX() + Game.SQUARE_SIDE * 2,
+                                          squares[3].getY() - Game.SQUARE_SIDE * 2)) {
 
                 squares[0].setX(squares[0].getX() - Game.SQUARE_SIDE);
                 squares[2].setX(squares[2].getX() + Game.SQUARE_SIDE);
@@ -60,9 +63,12 @@ public class BarPiece extends Piece {
             }
         }
         else {
-            if (game.isValidPosition(squares[0].getX() + Game.SQUARE_SIDE, squares[0].getY() - Game.SQUARE_SIDE)
-                    && game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE, squares[2].getY() + Game.SQUARE_SIDE)
-                    && game.isValidPosition(squares[3].getX() - Game.SQUARE_SIDE * 2, squares[3].getY() + Game.SQUARE_SIDE * 2)) {
+            if (game.isValidPosition(squares[0].getX() + Game.SQUARE_SIDE, squares[0].
+                                     getY() - Game.SQUARE_SIDE) &&
+                     game.isValidPosition(squares[2].getX() - Game.SQUARE_SIDE,
+                                          squares[2].getY() + Game.SQUARE_SIDE) &&
+                     game.isValidPosition(squares[3].getX() - Game.SQUARE_SIDE * 2,
+                                          squares[3].getY() + Game.SQUARE_SIDE * 2)) {
                 squares[0].setX(squares[0].getX() + Game.SQUARE_SIDE);
                 squares[2].setX(squares[2].getX() - Game.SQUARE_SIDE);
                 squares[3].setX(squares[3].getX() - Game.SQUARE_SIDE * 2);

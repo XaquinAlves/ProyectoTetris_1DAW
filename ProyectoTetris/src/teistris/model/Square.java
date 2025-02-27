@@ -178,8 +178,8 @@ public class Square {
     }
 
     /**
-     * Construtor da clase que crea un cadrado establecendo as súas coordenadas,
-     * cor e referenza ao xogo
+     * Construtor da clase que crea un cadrado establecendo as súas coordenadas, cor e
+     * referenza ao xogo
      *
      * @param x Coordenada x
      * @param y Coordenada y
