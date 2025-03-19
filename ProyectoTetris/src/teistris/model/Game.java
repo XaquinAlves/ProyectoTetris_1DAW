@@ -190,7 +190,7 @@ public class Game {
             if (savedPiece == null) {
 
                 savedPiece = currentPiece;
-
+                //Borramos a peza do panel de xogo e pintamola no panel lateral
                 for (Square sq : savedPiece.getSquares()) {
 
                     mainWindow.deleteSquare(sq.getLblSquare());
@@ -200,30 +200,31 @@ public class Game {
                     mainWindow.drawSavedSquare(sq.getLblSquare());
 
                 }
-
+                //Reseteamos a posicion da peza na venta de xogo
                 savedPiece.resetPiece();
-
+                //Crea unha nova peza
                 createNewPiece();
-                //Si hay peza gardada, gardamos a actual e pomos a gardada como actual  
+
             }
             else {
 
+                //Si hay peza gardada, gardamos a actual e pomos a gardada como actual 
                 Piece temp = currentPiece;
                 currentPiece = savedPiece;
                 savedPiece = temp;
-
+                //Pintamos a antiga peza gardada no panel de xogo
                 for (Square sq : currentPiece.getSquares()) {
                     mainWindow.deleteSavedSquare(sq.getLblSquare());
                     sq.repaintOnMainWindow();
                     mainWindow.drawSquare(sq.getLblSquare());
                 }
-
+                //Pintamos a nova peza gardada no panel lateral
                 for (Square sq : savedPiece.getSquares()) {
                     mainWindow.deleteSquare(sq.getLblSquare());
                     sq.repaintOnSaved();
                     mainWindow.drawSavedSquare(sq.getLblSquare());
                 }
-
+                //Reseteamos a posicion no panel de xogo da peza gardada
                 savedPiece.resetPiece();
             }
         }
@@ -255,20 +256,20 @@ public class Game {
                 bagPieces = BagOfPieces.fillBagClassic(this);
             }
         }
-
+        //Se non hay seguinte peza, sacamola da bolsa
         if (nextPiece == null) {
             this.nextPiece = bagPieces.pop();
         }
-
+        //Pomos a seguinte peza como actual
         this.currentPiece = this.nextPiece;
-
+        //Sacamos a seguinte peza da bolsa
         this.nextPiece = bagPieces.pop();
-
+        //Repintamos a peza seguinte na venta principal
         for (Square sq : currentPiece.getSquares()) {
             sq.repaintOnMainWindow();
             mainWindow.drawSquare(sq.getLblSquare());
         }
-
+        //Pintamos a seguinte peza no panel lateral
         for (Square sq : nextPiece.getSquares()) {
             mainWindow.drawNextSquare(sq.getLblSquare());
         }
