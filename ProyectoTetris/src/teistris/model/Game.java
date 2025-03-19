@@ -409,6 +409,8 @@ public class Game {
             sq.repaintOnMainWindow();
             mainWindow.drawSquare(sq.getLblSquare());
         }
+        //Borramos as posibles liñas completadas
+        deleteCompletedLines();
     }
 
     /**
